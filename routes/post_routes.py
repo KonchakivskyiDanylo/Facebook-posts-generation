@@ -112,6 +112,224 @@ def generate_posts_page():
                            initial_config=initial_config,
                            generation_output_log=generation_output_log)
 
+
+# At the module level - BEFORE any background thread functions
+@post_routes.route('/post_review', methods=['GET', 'POST'])
+def post_review_page():
+    filter_options = ["All", "Approved", "Not Approved"]
+    current_filter = request.args.get('filter', 'All')
+    selected_post_id = request.args.get('selected_post_id', type=int)
+
+    posts_to_review = database_manager.get_all_unposted_posts_for_review(current_filter)
+
+    selected_post = None
+    if selected_post_id:
+        selected_post = next((p for p in posts_to_review if p['id'] == selected_post_id), None)
+        # Ensure post_hour is formatted for HTML <input type="number">
+        if selected_post and 'post_hour' in selected_post:
+            selected_post['post_hour'] = int(selected_post['post_hour'])
+
+    app_for_thread = current_app._get_current_object()  # Get app object for thread
+
+    if request.method == 'POST':
+        action = request.form.get('action')
+        post_id = request.form.get('post_id', type=int)
+
+        # Ensure we have the latest post data from DB for actions
+        if post_id:
+            current_post_data = database_manager.get_post_details_by_db_id(post_id)
+            if not current_post_data:
+                flash(f"Post ID {post_id} not found in database.", "danger")
+                return redirect(url_for('post_routes.post_review_page', filter=current_filter))
+        else:
+            flash("No post ID provided for action.", "danger")
+            return redirect(url_for('post_routes.post_review_page', filter=current_filter))
+
+        if action == 'update_post':
+            updated_content_en = request.form.get('content_en', '').strip()
+            updated_content_ar = request.form.get('content_ar', '').strip()
+            updated_image_prompt_en = request.form.get('image_prompt_en', '').strip()
+            updated_image_prompt_ar = request.form.get('image_prompt_ar', '').strip()
+            updated_page_name = request.form.get('page_name_select')
+            updated_post_date = request.form.get('post_date')
+            updated_post_hour = int(request.form.get('post_hour', 0))
+            is_approved = 'is_approved' in request.form
+
+            try:
+                datetime.strptime(updated_post_date, "%Y-%m-%d")
+            except ValueError:
+                flash("Invalid date format. Please use YYYY-MM-DD.", "danger")
+                return redirect(
+                    url_for('post_routes.post_review_page', filter=current_filter, selected_post_id=post_id))
+
+            if not (0 <= updated_post_hour <= 23):
+                flash("Please enter a valid hour between 0 and 23.", "danger")
+                return redirect(
+                    url_for('post_routes.post_review_page', filter=current_filter, selected_post_id=post_id))
+
+            selected_page_obj = next((p for p in FACEBOOK_PAGES if p["page_name"] == updated_page_name), None)
+
+            if not selected_page_obj:
+                flash(f"Selected page '{updated_page_name}' not found in configuration. Cannot update post.", "danger")
+                return redirect(
+                    url_for('post_routes.post_review_page', filter=current_filter, selected_post_id=post_id))
+
+            updated_facebook_page_id = selected_page_obj.get("facebook_page_id")
+            updated_facebook_access_token = selected_page_obj.get("facebook_access_token")
+
+            if not updated_facebook_page_id or not updated_facebook_access_token:
+                flash(
+                    f"Facebook Page ID or Access Token is missing for page '{updated_page_name}'. Please update page details in 'Page Details' tab.",
+                    "warning")
+
+            success = database_manager.update_post_content_and_image(
+                post_id,
+                content_en=updated_content_en,
+                content_ar=updated_content_ar,
+                generated_image_filename=current_post_data.get('generated_image_filename'),
+                image_prompt_en=updated_image_prompt_en,
+                image_prompt_ar=updated_image_prompt_ar,
+                post_date=updated_post_date,
+                post_hour=updated_post_hour,
+                page_name=updated_page_name,
+                facebook_page_id=updated_facebook_page_id,
+                facebook_access_token=updated_facebook_access_token
+            )
+            if success:
+                database_manager.update_post_approval_status(post_id, is_approved)
+                flash(f"Post ID {post_id} updated successfully.", "success")
+                return redirect(
+                    url_for('post_routes.post_review_page', filter=current_filter, selected_post_id=post_id))
+            else:
+                flash(f"Failed to update Post ID {post_id}.", "danger")
+                return redirect(
+                    url_for('post_routes.post_review_page', filter=current_filter, selected_post_id=post_id))
+
+        elif action == 'delete_post':
+            success, image_filename_from_db = database_manager.delete_post_by_id(post_id)
+            if success:
+                if image_filename_from_db:
+                    image_save_dir = os.path.join(current_app.config['OUTPUT_DIR'], "generated_images")
+                    image_path = os.path.join(image_save_dir, image_filename_from_db)
+                    if os.path.exists(image_path):
+                        try:
+                            os.remove(image_path)
+                            print(f"Deleted associated image file: {image_path}")
+                        except Exception as e:
+                            print(f"Error deleting image file {image_path}: {e}")
+                            flash(f"Post deleted, but could not delete image file: {e}", "warning")
+
+                flash(f"Post ID {post_id} deleted successfully.", "success")
+                return redirect(url_for('post_routes.post_review_page', filter=current_filter))
+            else:
+                flash(f"Failed to delete Post ID {post_id}.", "danger")
+                return redirect(
+                    url_for('post_routes.post_review_page', filter=current_filter, selected_post_id=post_id))
+
+        elif action == 'generate_image':
+            image_prompt_en = request.form.get('image_prompt_en', '').strip()
+            image_prompt_ar = request.form.get('image_prompt_ar', '').strip()
+            image_gen_provider = request.form.get('image_gen_provider')
+            image_gen_model = request.form.get('image_gen_model')
+
+            if not (image_prompt_en or image_prompt_ar):
+                flash("Please enter an image prompt (English or Arabic) before generating.", "danger")
+                return redirect(
+                    url_for('post_routes.post_review_page', filter=current_filter, selected_post_id=post_id))
+
+            effective_prompt = ""
+            post_language = current_post_data.get('language')
+            if post_language == "English" and image_prompt_en:
+                effective_prompt = image_prompt_en
+            elif post_language == "Arabic" and image_prompt_ar:
+                effective_prompt = image_prompt_ar
+            elif post_language == "Both":
+                effective_prompt = image_prompt_en if image_prompt_en else image_prompt_ar
+
+            if not effective_prompt:
+                flash("No effective image prompt (EN or AR) available for generation based on post language.", "danger")
+                return redirect(
+                    url_for('post_routes.post_review_page', filter=current_filter, selected_post_id=post_id))
+
+            threading.Thread(target=_run_single_image_generation_background, args=(
+                app_for_thread,
+                post_id, effective_prompt, image_gen_provider, image_gen_model,
+                current_app.config['OUTPUT_DIR'], image_prompt_en, image_prompt_ar,
+                current_filter
+            )).start()
+
+            flash("Image generation started in background. Page will refresh upon completion.", "info")
+            return redirect(url_for('post_routes.post_review_page', filter=current_filter, selected_post_id=post_id))
+
+        elif action == 'upload_image':
+            image_file = request.files.get('image_file')
+            if not image_file:
+                return jsonify(status='error', message='No image file provided.'), 400
+
+            destination_dir = os.path.join(current_app.config['OUTPUT_DIR'], "generated_images")
+            os.makedirs(destination_dir, exist_ok=True)
+
+            filename = f"uploaded_image_{post_id}_{int(datetime.now().timestamp())}{os.path.splitext(image_file.filename)[1]}"
+            filepath = os.path.join(destination_dir, filename)
+
+            try:
+                image_file.save(filepath)
+                database_manager.update_post_content_and_image(
+                    post_id,
+                    None, None,
+                    generated_image_filename=filename,
+                    image_prompt_en=current_post_data.get('image_prompt_en', ''),
+                    image_prompt_ar=current_post_data.get('image_prompt_ar', '')
+                )
+                return jsonify(status='success',
+                               message=f"Image '{filename}' uploaded successfully for Post ID {post_id}.")
+            except Exception as e:
+                print(f"Error uploading image for Post ID {post_id}: {e}")
+                return jsonify(status='error', message=f"Failed to upload image: {e}"), 500
+
+        elif action == 'clear_image':
+            image_filename_from_db = current_post_data.get('generated_image_filename')
+            if image_filename_from_db:
+                image_path = os.path.join(current_app.config['OUTPUT_DIR'], "generated_images", image_filename_from_db)
+                if os.path.exists(image_path):
+                    try:
+                        os.remove(image_path)
+                        print(f"Deleted associated image file: {image_path}")
+                    except Exception as e:
+                        print(f"Error deleting image file {image_path}: {e}")
+                        flash(f"Post deleted, but could not delete image file: {e}", "warning")
+
+                database_manager.update_post_content_and_image(
+                    post_id,
+                    None, None,
+                    generated_image_filename=None,
+                    image_prompt_en=None,
+                    image_prompt_ar=None
+                )
+                flash(f"Image for Post ID {post_id} cleared.", "success")
+            else:
+                flash("No image to clear for selected post.", "info")
+
+            return redirect(url_for('post_routes.post_review_page', filter=current_filter, selected_post_id=post_id))
+        else:
+            flash(f"Unknown action: {action}", "danger")
+            return redirect(url_for('post_routes.post_review_page', filter=current_filter, selected_post_id=post_id))
+
+    page_names = [page["page_name"] for page in FACEBOOK_PAGES]
+
+    image_gen_settings = {
+        'default_image_gen_provider': current_app.config.get('DEFAULT_IMAGE_GEN_PROVIDER'),
+        'default_openai_image_model': current_app.config.get('DEFAULT_OPENAI_IMAGE_MODEL')
+    }
+
+    return render_template('post_review.html',
+                           filter_options=filter_options,
+                           current_filter=current_filter,
+                           posts=posts_to_review,
+                           selected_post=selected_post,
+                           page_names=page_names,
+                           image_gen_settings=image_gen_settings)
+
 def _run_post_generation_background(app, num_posts, output_dir, text_gen_provider, gemini_model, openai_text_model,
                                     openai_image_model, temperature, start_date_str, selected_page_data,
                                     use_optimal_posting_time, use_optimal_gen_params, use_optimal_language,
@@ -257,240 +475,31 @@ def _run_post_generation_background(app, num_posts, output_dir, text_gen_provide
                 os.remove(temp_page_data_path)
                 _log_to_output(f"Removed temporary page data file: {temp_page_data_path}")
 
-    # --- Route for the "Post Review & Edit" page ---
-    @post_routes.route('/post_review', methods=['GET', 'POST'])
-    def post_review_page():
-        filter_options = ["All", "Approved", "Not Approved"]
-        current_filter = request.args.get('filter', 'All')
-        selected_post_id = request.args.get('selected_post_id', type=int)
 
-        posts_to_review = database_manager.get_all_unposted_posts_for_review(current_filter)
-        
-        selected_post = None
-        if selected_post_id:
-            selected_post = next((p for p in posts_to_review if p['id'] == selected_post_id), None)
-            # Ensure post_hour is formatted for HTML <input type="number">
-            if selected_post and 'post_hour' in selected_post:
-                selected_post['post_hour'] = int(selected_post['post_hour'])
+def _run_single_image_generation_background(app, post_id, effective_prompt, image_gen_provider, image_gen_model,
+                                            output_dir, image_prompt_en, image_prompt_ar, current_filter):
+    with app.app_context():
+        _log_to_output(f"Starting single image generation for Post ID {post_id}...")
+        try:
+            generated_filename = image_generator.generate_image(
+                effective_prompt,
+                output_dir=output_dir,
+                provider=image_gen_provider,
+                model=image_gen_model
+            )
 
-
-        app_for_thread = current_app._get_current_object() # Get app object for thread
-
-        if request.method == 'POST':
-            action = request.form.get('action')
-            post_id = request.form.get('post_id', type=int)
-            
-            # Ensure we have the latest post data from DB for actions
-            if post_id:
-                current_post_data = database_manager.get_post_details_by_db_id(post_id)
-                if not current_post_data:
-                    flash(f"Post ID {post_id} not found in database.", "danger")
-                    return redirect(url_for('post_routes.post_review_page', filter=current_filter))
-            else:
-                flash("No post ID provided for action.", "danger")
-                return redirect(url_for('post_routes.post_review_page', filter=current_filter))
-
-            if action == 'update_post':
-                updated_content_en = request.form.get('content_en', '').strip()
-                updated_content_ar = request.form.get('content_ar', '').strip()
-                updated_image_prompt_en = request.form.get('image_prompt_en', '').strip()
-                updated_image_prompt_ar = request.form.get('image_prompt_ar', '').strip()
-                updated_page_name = request.form.get('page_name_select')
-                updated_post_date = request.form.get('post_date')
-                updated_post_hour = int(request.form.get('post_hour', 0))
-                is_approved = 'is_approved' in request.form
-
-                try:
-                    datetime.strptime(updated_post_date, "%Y-%m-%d")
-                except ValueError:
-                    flash("Invalid date format. Please use YYYY-MM-DD.", "danger")
-                    return redirect(url_for('post_routes.post_review_page', filter=current_filter, selected_post_id=post_id))
-
-                if not (0 <= updated_post_hour <= 23):
-                    flash("Please enter a valid hour between 0 and 23.", "danger")
-                    return redirect(url_for('post_routes.post_review_page', filter=current_filter, selected_post_id=post_id))
-
-                selected_page_obj = next((p for p in FACEBOOK_PAGES if p["page_name"] == updated_page_name), None)
-
-                if not selected_page_obj:
-                    flash(f"Selected page '{updated_page_name}' not found in configuration. Cannot update post.", "danger")
-                    return redirect(url_for('post_routes.post_review_page', filter=current_filter, selected_post_id=post_id))
-
-                updated_facebook_page_id = selected_page_obj.get("facebook_page_id")
-                updated_facebook_access_token = selected_page_obj.get("facebook_access_token")
-
-                if not updated_facebook_page_id or not updated_facebook_access_token:
-                    flash(f"Facebook Page ID or Access Token is missing for page '{updated_page_name}'. Please update page details in 'Page Details' tab.", "warning")
-
-                success = database_manager.update_post_content_and_image(
+            if generated_filename:
+                database_manager.update_post_content_and_image(
                     post_id,
-                    content_en=updated_content_en,
-                    content_ar=updated_content_ar,
-                    generated_image_filename=current_post_data.get('generated_image_filename'),
-                    image_prompt_en=updated_image_prompt_en,
-                    image_prompt_ar=updated_image_prompt_ar,
-                    post_date=updated_post_date,
-                    post_hour=updated_post_hour,
-                    page_name=updated_page_name,
-                    facebook_page_id=updated_facebook_page_id,
-                    facebook_access_token=updated_facebook_access_token
+                    None, None,
+                    generated_image_filename=generated_filename,
+                    image_prompt_en=image_prompt_en,
+                    image_prompt_ar=image_prompt_ar
                 )
-                if success:
-                    database_manager.update_post_approval_status(post_id, is_approved)
-                    flash(f"Post ID {post_id} updated successfully.", "success")
-                    return redirect(url_for('post_routes.post_review_page', filter=current_filter, selected_post_id=post_id))
-                else:
-                    flash(f"Failed to update Post ID {post_id}.", "danger")
-                    return redirect(url_for('post_routes.post_review_page', filter=current_filter, selected_post_id=post_id))
-
-            elif action == 'delete_post':
-                success, image_filename_from_db = database_manager.delete_post_by_id(post_id)
-                if success:
-                    if image_filename_from_db:
-                        image_save_dir = os.path.join(current_app.config['OUTPUT_DIR'], "generated_images")
-                        image_path = os.path.join(image_save_dir, image_filename_from_db)
-                        if os.path.exists(image_path):
-                            try:
-                                os.remove(image_path)
-                                print(f"Deleted associated image file: {image_path}")
-                            except Exception as e:
-                                print(f"Error deleting image file {image_path}: {e}")
-                                flash(f"Post deleted, but could not delete image file: {e}", "warning")
-
-                    flash(f"Post ID {post_id} deleted successfully.", "success")
-                    return redirect(url_for('post_routes.post_review_page', filter=current_filter))
-                else:
-                    flash(f"Failed to delete Post ID {post_id}.", "danger")
-                    return redirect(url_for('post_routes.post_review_page', filter=current_filter, selected_post_id=post_id))
-            
-            elif action == 'generate_image':
-                image_prompt_en = request.form.get('image_prompt_en', '').strip()
-                image_prompt_ar = request.form.get('image_prompt_ar', '').strip()
-                image_gen_provider = request.form.get('image_gen_provider')
-                image_gen_model = request.form.get('image_gen_model')
-
-                if not (image_prompt_en or image_prompt_ar):
-                    flash("Please enter an image prompt (English or Arabic) before generating.", "danger")
-                    return redirect(url_for('post_routes.post_review_page', filter=current_filter, selected_post_id=post_id))
-                
-                effective_prompt = ""
-                post_language = current_post_data.get('language')
-                if post_language == "English" and image_prompt_en:
-                    effective_prompt = image_prompt_en
-                elif post_language == "Arabic" and image_prompt_ar:
-                    effective_prompt = image_prompt_ar
-                elif post_language == "Both":
-                    effective_prompt = image_prompt_en if image_prompt_en else image_prompt_ar
-                
-                if not effective_prompt:
-                    flash("No effective image prompt (EN or AR) available for generation based on post language.", "danger")
-                    return redirect(url_for('post_routes.post_review_page', filter=current_filter, selected_post_id=post_id))
-
-                threading.Thread(target=_run_single_image_generation_background, args=(
-                    app_for_thread,
-                    post_id, effective_prompt, image_gen_provider, image_gen_model,
-                    current_app.config['OUTPUT_DIR'], image_prompt_en, image_prompt_ar,
-                    current_filter
-                )).start()
-
-                flash("Image generation started in background. Page will refresh upon completion.", "info")
-                return redirect(url_for('post_routes.post_review_page', filter=current_filter, selected_post_id=post_id))
-
-            elif action == 'upload_image':
-                image_file = request.files.get('image_file')
-                if not image_file:
-                    return jsonify(status='error', message='No image file provided.'), 400
-
-                destination_dir = os.path.join(current_app.config['OUTPUT_DIR'], "generated_images")
-                os.makedirs(destination_dir, exist_ok=True)
-
-                filename = f"uploaded_image_{post_id}_{int(datetime.now().timestamp())}{os.path.splitext(image_file.filename)[1]}"
-                filepath = os.path.join(destination_dir, filename)
-
-                try:
-                    image_file.save(filepath)
-                    database_manager.update_post_content_and_image(
-                        post_id,
-                        None, None,
-                        generated_image_filename=filename,
-                        image_prompt_en=current_post_data.get('image_prompt_en', ''),
-                        image_prompt_ar=current_post_data.get('image_prompt_ar', '')
-                    )
-                    return jsonify(status='success', message=f"Image '{filename}' uploaded successfully for Post ID {post_id}.")
-                except Exception as e:
-                    print(f"Error uploading image for Post ID {post_id}: {e}")
-                    return jsonify(status='error', message=f"Failed to upload image: {e}"), 500
-            
-            elif action == 'clear_image':
-                image_filename_from_db = current_post_data.get('generated_image_filename')
-                if image_filename_from_db:
-                    image_path = os.path.join(current_app.config['OUTPUT_DIR'], "generated_images", image_filename_from_db)
-                    if os.path.exists(image_path):
-                        try:
-                            os.remove(image_path)
-                            print(f"Deleted associated image file: {image_path}")
-                        except Exception as e:
-                            print(f"Error deleting image file {image_path}: {e}")
-                            flash(f"Post deleted, but could not delete image file: {e}", "warning")
-                    
-                    database_manager.update_post_content_and_image(
-                        post_id,
-                        None, None,
-                        generated_image_filename=None,
-                        image_prompt_en=None,
-                        image_prompt_ar=None
-                    )
-                    flash(f"Image for Post ID {post_id} cleared.", "success")
-                else:
-                    flash("No image to clear for selected post.", "info")
-                
-                return redirect(url_for('post_routes.post_review_page', filter=current_filter, selected_post_id=post_id))
-            else: # Add this else block to catch unhandled actions if any
-                flash(f"Unknown action: {action}", "danger")
-                return redirect(url_for('post_routes.post_review_page', filter=current_filter, selected_post_id=post_id))
-
-
-        page_names = [page["page_name"] for page in FACEBOOK_PAGES]
-        
-        image_gen_settings = {
-            'default_image_gen_provider': current_app.config.get('DEFAULT_IMAGE_GEN_PROVIDER'),
-            'default_openai_image_model': current_app.config.get('DEFAULT_OPENAI_IMAGE_MODEL')
-        }
-
-        return render_template('post_review.html', 
-                               filter_options=filter_options,
-                               current_filter=current_filter,
-                               posts=posts_to_review,
-                               selected_post=selected_post,
-                               page_names=page_names,
-                               image_gen_settings=image_gen_settings)
-
-
-    def _run_single_image_generation_background(app, post_id, effective_prompt, image_gen_provider, image_gen_model,
-                                                output_dir, image_prompt_en, image_prompt_ar, current_filter):
-        
-        with app.app_context():
-            _log_to_output(f"Starting single image generation for Post ID {post_id}...")
-            try:
-                generated_filename = image_generator.generate_image(
-                    effective_prompt,
-                    output_dir=output_dir,
-                    provider=image_gen_provider,
-                    model=image_gen_model
-                )
-
-                if generated_filename:
-                    database_manager.update_post_content_and_image(
-                        post_id,
-                        None, None,
-                        generated_image_filename=generated_filename,
-                        image_prompt_en=image_prompt_en,
-                        image_prompt_ar=image_prompt_ar
-                    )
-                    _log_to_output(f"New image generated and saved for Post ID {post_id}.")
-                else:
-                    _log_to_output(f"AI image generation failed for Post ID {post_id}. See server console for details.")
-            except Exception as e:
-                _log_to_output(f"CRITICAL ERROR in single image generation thread for Post ID {post_id}: {e}")
-            finally:
-                pass
+                _log_to_output(f"New image generated and saved for Post ID {post_id}.")
+            else:
+                _log_to_output(f"AI image generation failed for Post ID {post_id}. See server console for details.")
+        except Exception as e:
+            _log_to_output(f"CRITICAL ERROR in single image generation thread for Post ID {post_id}: {e}")
+        finally:
+            pass
