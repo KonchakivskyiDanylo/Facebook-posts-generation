@@ -1,0 +1,273 @@
+{
+            "page_name": "GE for trading",
+            "facebook_page_id": "387337258080259",
+            "facebook_access_token": "EAApO3Xx6ZAy0BPBvMsEq6ibh7U87qiyxlF0EI88VG74BsweFMtwCpSkWHraQoIXSDZAqQZAImbWq53VB7BfQ2TgNWyHTCaS6QjaQcUZByXZCPk27L8gcFvoZBSDDXRo7d5772u0adMZCpoQDyBXWvsieRHTIe87IvdlNxrP8Y6A59eGCjW0Nei0kiTjDQJZATdZCbNaTACoThLF7P88Bh0QZDZD",
+            "english_contact_info": "Website: https://www.getradingeg.com\nTax ID: 470-012-110\nAddress: 5A Mobarak Street off Asmaa Fahmy Ard El Golf , Heliopolis , Cairo , Egypt.\nPostal Code : 11586\nLocation: https://maps.app.goo.gl/XhA2E7S1HvjJSM4q8",
+            "arabic_contact_info": "الموقع الاكترونى: https://www.getradingeg.com/ar\nتسجيل ضريبى: 470-012-110\nالعنوان: 5أ ش مبارك من اسماء فهمى خلف الرقابه الادارية ارض الجولف مصر الجديدة القاهرة\nاللوكيشن: https://maps.app.goo.gl/XhA2E7S1HvjJSM4q8",
+            "topics": [
+                {
+                    "name": "Seasonal Tips: Summer Engine Care",
+                    "english_image_prompt": "Car parked under a hot sun, with icons representing summer car care (e.g., coolant, AC check). Bright, seasonal.",
+                    "arabic_post_prompt": "اكتب نصائح صيانة باللغة العربية الفصحى خاصة بالعناية بمحرك السيارة خلال فصل الصيف الحار.",
+                    "arabic_image_prompt": "سيارة متوقفة تحت شمس حارقة، مع أيقونات تمثل العناية بالسيارة في الصيف (مثل سائل التبريد، فحص التكييف)."
+                },
+                {
+                    "name": "Service Reminder: Oil Change Due?",
+                    "english_image_prompt": "Car dashboard with an oil change reminder light, slightly blurred background. Urgent, reminder.",
+                    "arabic_post_prompt": "اكتب تذكيرًا باللغة العربية الفصحى لمتابعينا بضرورة تغيير زيت المحرك في الوقت المناسب.",
+                    "arabic_image_prompt": "لوحة قيادة السيارة مع ضوء تذكير بتغيير الزيت، خلفية ضبابية قليلاً."
+                },
+                {
+                    "name": "Value Proposition: Why Choose GE",
+                    "english_image_prompt": "Infographic-style image highlighting benefits of choosing GE for Trading (e.g., quality, price, service). Clean, persuasive.",
+                    "arabic_post_prompt": "اكتب منشورًا باللغة العربية الفصحى يوضح القيمة المضافة لاختيار GE for Trading، مع التركيز على الجودة والسعر والخدمة.",
+                    "arabic_image_prompt": "صورة بنمط مخطط معلوماتي (Infographic) تسلط الضوء على فوائد اختيار GE for Trading (مثل الجودة والسعر والخدمة)."
+                },
+                {
+                    "name": "Top 5 Spare Parts for Sedans",
+                    "english_image_prompt": "Clean arrangement of 5 essential sedan spare parts, perhaps on a workbench. Organized, useful.",
+                    "arabic_post_prompt": "اكتب منشورًا باللغة العربية الفصحى عن أهم 5 قطع غيار أساسية يجب أن تتوفر لكل سيارة سيدان.",
+                    "arabic_image_prompt": "ترتيب نظيف لـ 5 قطع غيار سيدان أساسية، ربما على طاولة عمل."
+                },
+                {
+                    "name": "Explainer: What is a Timing Belt?",
+                    "english_image_prompt": "Diagram or animated GIF of a timing belt in action within an engine. Educational, clear.",
+                    "arabic_post_prompt": "اكتب منشورًا باللغة العربية الفصحى يشرح ما هو حزام التوقيت (Timing Belt) في السيارة وأهميته القصوى للمحرك.",
+                    "arabic_image_prompt": "رسم بياني أو صورة متحركة (GIF) لحزام التوقيت أثناء العمل داخل المحرك."
+                },
+                {
+                    "name": "How-To: Check Coolant Level",
+                    "english_image_prompt": "Hands checking a car's coolant reservoir, clear liquid visible. Instructional, practical.",
+                    "arabic_post_prompt": "اكتب منشورًا باللغة العربية الفصحى يشرح كيفية فحص مستوى سائل التبريد في سيارتك خطوة بخطوة.",
+                    "arabic_image_prompt": "أيد تفحص خزان سائل تبريد السيارة، سائل شفاف مرئي."
+                },
+                {
+                    "name": "Debunking Car Maintenance Myths",
+                    "english_image_prompt": "Image with a 'myth' crossed out and a 'fact' checkmark, automotive theme. Engaging, factual.",
+                    "arabic_post_prompt": "اكتب منشورًا باللغة العربية الفصحى يفند الخرافات الشائعة حول صيانة السيارات ويقدم الحقائق الصحيحة.",
+                    "arabic_image_prompt": "صورة مع 'خرافة' مشطوبة وعلامة صح على 'حقيقة'، بموضوع السيارات."
+                },
+                {
+                    "name": "Visual Guide: Filters You Need",
+                    "english_image_prompt": "Arrangement of various car filters (oil, air, cabin) with labels. Informative, organized.",
+                    "arabic_post_prompt": "اكتب دليلًا مرئيًا باللغة العربية الفصحى عن أنواع الفلاتر المختلفة التي تحتاجها سيارتك (زيت، هواء، تكييف).",
+                    "arabic_image_prompt": "ترتيب لمختلف فلاتر السيارة (زيت، هواء، مقصورة) مع تسميات."
+                },
+                {
+                    "name": "Spotlight: Best Sellers This Month",
+                    "english_image_prompt": "Carousel or grid of top-selling car parts, elegantly displayed. Popular, appealing.",
+                    "arabic_post_prompt": "سلط الضوء في منشور باللغة العربية الفصحى على المنتجات الأكثر مبيعًا لدينا هذا الشهر، مع ذكر سبب شعبيتها.",
+                    "arabic_image_prompt": "ترتيب أنيق لقطع غيار السيارات الأكثر مبيعًا لهذا الشهر، معروضة بشكل جذاب."
+                },
+                {
+                    "name": "Tech Talk: Engine Diagnostics",
+                    "english_image_prompt": "Diagnostic tool connected to a car's OBD port, screen showing data, high-tech feel. Professional, diagnostic.",
+                    "arabic_post_prompt": "اكتب منشورًا باللغة العربية الفصحى يتحدث عن تشخيص أعطال المحرك بواسطة التقنيات الحديثة وأهميته لسلامة السيارة.",
+                    "arabic_image_prompt": "أداة تشخيص متصلة بمنفذ OBD للسيارة، شاشة تعرض البيانات، ذات طابع عالي التقنية."
+                },
+                {
+                    "name": "How-To: Clean Battery Terminals",
+                    "english_image_prompt": "Close-up of car battery terminals being cleaned, with tools and protective gear. Practical, clean.",
+                    "arabic_post_prompt": "اكتب منشورًا باللغة العربية الفصحى يشرح كيفية تنظيف أطراف بطارية السيارة خطوة بخطوة للحفاظ على أدائها.",
+                    "arabic_image_prompt": "لقطة مقربة لأطراف بطارية السيارة وهي تنظف، مع الأدوات ومعدات الحماية."
+                },
+                {
+                    "name": "Arabic Quote About Reliability",
+                    "english_image_prompt": "Artistic Arabic calligraphy quote about reliability, with a background of original car parts, artistic image.",
+                    "arabic_post_prompt": "اكتب اقتباسًا ملهمًا باللغة العربية الفصحى عن أهمية الموثوقية في قطع غيار السيارات.",
+                    "arabic_image_prompt": "صورة اقتباس بخط عربي جميل عن الموثوقية، مع خلفية لقطع غيار سيارات أصلية، صورة فنية."
+                },
+                {
+                    "name": "Social Proof: 5-Star Review",
+                    "english_image_prompt": "Large 5-star rating icon with a speech bubble for a review. Trustworthy, positive.",
+                    "arabic_post_prompt": "اكتب منشورًا باللغة العربية الفصحى يشارك مراجعة إيجابية من 5 نجوم تلقيناها من أحد عملائنا السعداء.",
+                    "arabic_image_prompt": "أيقونة تقييم 5 نجوم كبيرة مع فقاعة كلام لمراجعة."
+                },
+                {
+                    "name": "Explainer: Radiator Function",
+                    "english_image_prompt": "Cutaway diagram of a car radiator showing coolant flow. Technical, educational.",
+                    "arabic_post_prompt": "اكتب منشورًا باللغة العربية الفصحى يشرح وظيفة المبرد (الرادياتير) في السيارة وكيف يحافظ على درجة حرارة المحرك.",
+                    "arabic_image_prompt": "رسم تخطيطي مقطوع لمبرد السيارة يوضح تدفق سائل التبريد."
+                },
+                {
+                    "name": "Top 3 Reasons to Use Genuine Parts",
+                    "english_image_prompt": "Infographic with three distinct icons representing quality, fit, and warranty for genuine parts. Persuasive, clear.",
+                    "arabic_post_prompt": "اذكر في منشور باللغة العربية الفصحى أهم 3 أسباب لاستخدام قطع الغيار الأصلية لسيارتك.",
+                    "arabic_image_prompt": "رسم بياني بثلاث أيقونات مميزة تمثل الجودة والملاءمة والضمان لقطع الغيار الأصلية."
+                },
+                {
+                    "name": "Safety Check: Warning Lights",
+                    "english_image_prompt": "Car dashboard illuminated with various warning lights, with explanations next to them. Safety, informative.",
+                    "arabic_post_prompt": "اكتب منشورًا باللغة العربية الفصحى حول أهمية فهم أضواء التحذير في لوحة القيادة بسيارتك وماذا تعني كل منها.",
+                    "arabic_image_prompt": "لوحة قيادة السيارة مضاءة بأضواء تحذير مختلفة، مع تفسيرات بجانبها."
+                },
+                {
+                    "name": "Employee Tips: Engine Health",
+                    "english_image_prompt": "Mechanic giving advice, pointing to an engine component, friendly and informative. Expert, helpful.",
+                    "arabic_post_prompt": "شارك نصائح من موظفينا الخبراء في GE for Trading باللغة العربية الفصحى للحفاظ على صحة محرك سيارتك.",
+                    "arabic_image_prompt": "ميكانيكي يقدم نصيحة، يشير إلى مكون المحرك، ودود ومعلوماتي."
+                },
+                {
+                    "name": "Customer Question of the Week",
+                    "english_image_prompt": "Question mark bubble over a car, representing a common customer query. Engaging, helpful.",
+                    "arabic_post_prompt": "اكتب منشورًا باللغة العربية الفصحى يجيب على سؤال شائع تلقيناه من أحد العملاء هذا الأسبوع.",
+                    "arabic_image_prompt": "فقاعة علامة استفهام فوق سيارة، تمثل استفسار عميل شائع."
+                },
+                {
+                    "name": "Arabic Post: Importance of Oil Filters",
+                    "english_image_prompt": "Illustrative image of a new car oil filter, with a clean engine background, studio lighting.",
+                    "arabic_post_prompt": "اكتب منشورًا باللغة العربية الفصحى عن الأهمية القصوى لفلاتر الزيت في الحفاظ على المحرك.",
+                    "arabic_image_prompt": "صورة توضيحية لفلتر زيت سيارة جديد، مع خلفية نظيفة للمحرك، إضاءة استوديو."
+                },
+                {
+                    "name": "Checklist: Travel-Ready Car",
+                    "english_image_prompt": "Simple checklist with icons for car components (tires, oil, fluids) for travel prep. Organized, practical.",
+                    "arabic_post_prompt": "اكتب قائمة مراجعة باللغة العربية الفصحى لضمان أن سيارتك جاهزة تمامًا لرحلات السفر الطويلة والآمنة.",
+                    "arabic_image_prompt": "قائمة مراجعة بسيطة مع أيقونات لمكونات السيارة (الإطارات، الزيت، السوائل) للاستعداد للسفر."
+                },
+                {
+                    "name": "Weekend Deal Announcement",
+                    "english_image_prompt": "Dynamic graphic with a large 'Sale' or 'Offer' sign, car parts arranged attractively, vibrant colors. Eye-catching design.",
+                    "arabic_post_prompt": "أعلن عن عرض نهاية الأسبوع الخاص بنا باللغة العربية الفصحى على قطع غيار محددة أو خدمات صيانة.",
+                    "arabic_image_prompt": "جرافيك ديناميكي مع لافتة 'عرض نهاية الأسبوع' معروضة بشكل بارز، ربما أيقونة عرض لفترة محدودة."
+                },
+                {
+                    "name": "Did You Know? Car Trivia",
+                    "english_image_prompt": "Lightbulb icon over a car, with a trivia question or fact. Fun, educational.",
+                    "arabic_post_prompt": "شارك معلومة ممتعة عن السيارات أو حقائق تاريخية عنها باللغة العربية الفصحى في منشور تفاعلي.",
+                    "arabic_image_prompt": "أيقونة مصباح فوق سيارة، مع سؤال تافه أو حقيقة."
+                },
+                {
+                    "name": "Case Study: Oil Brand Comparison",
+                    "english_image_prompt": "Graphs or charts comparing performance metrics of different oil brands.",
+                    "arabic_post_prompt": "اكتب دراسة حالة باللغة العربية الفصحى تقارن بين أداء زيوت محركات مختلفة أو علامات تجارية معينة، مع التركيز على البيانات والنتائج.",
+                    "arabic_image_prompt": "رسوم بيانية أو جداول تقارن مقاييس أداء زيوت مختلفة."
+                },
+                {
+                    "name": "Visual Tip: How Belts Work",
+                    "english_image_prompt": "Animated diagram or illustration showing how serpentine belts move in an engine. Clear, mechanical.",
+                    "arabic_post_prompt": "قدم نصيحة بصرية باللغة العربية الفصحى تشرح كيفية عمل السيور (الأحزمة) في محرك السيارة وأهميتها.",
+                    "arabic_image_prompt": "رسم متحرك أو توضيحي يوضح كيفية تحرك السيور في المحرك."
+                },
+                {
+                    "name": "Best Tools for Home Car Care",
+                    "english_image_prompt": "Collection of essential hand tools for basic car maintenance. Practical, handy.",
+                    "arabic_post_prompt": "اكتب منشورًا باللغة العربية الفصحى عن أفضل الأدوات الأساسية التي يجب أن يمتلكها كل صاحب سيارة للعناية بسيارته في المنزل.",
+                    "arabic_image_prompt": "مجموعة من الأدوات اليدوية الأساسية لصيانة السيارة المنزلية."
+                },
+                {
+                    "name": "Explainer: Fuel Injection vs Carburetor",
+                    "english_image_prompt": "Side-by-side diagram explaining the difference between fuel injection and carburetor systems. Technical, comparative.",
+                    "arabic_post_prompt": "اشرح باللغة العربية الفصحى الفرق بين نظام حقن الوقود (Fuel Injection) والمكربن (Carburetor) في محركات السيارات.",
+                    "arabic_image_prompt": "رسم تخطيطي جنبًا إلى جنب يشرح الفرق بين أنظمة حقن الوقود والمكربن."
+                },
+                {
+                    "name": "Sustainability Post: Oil Recycling",
+                    "english_image_prompt": "Recycling symbols around a bottle of used engine oil, emphasizing environmental responsibility. Eco-friendly, responsible.",
+                    "arabic_post_prompt": "اكتب منشورًا باللغة العربية الفصحى عن أهمية إعادة تدوير زيت المحرك المستعمل وكيف يساهم في حماية البيئة.",
+                    "arabic_image_prompt": "رموز إعادة التدوير حول زجاجة زيت محرك مستعمل، مع التركيز على المسؤولية البيئية."
+                },
+                {
+                    "name": "Maintenance Schedule Basics",
+                    "english_image_prompt": "Simple calendar or timeline showing recommended car maintenance intervals. Organized, planning.",
+                    "arabic_post_prompt": "اذكر أساسيات جدول صيانة السيارة باللغة العربية الفصحى، وما هي الفحوصات الدورية التي لا يجب إهمالها.",
+                    "arabic_image_prompt": "تقويم بسيط أو جدول زمني يوضح فترات صيانة السيارة الموصى بها."
+                },
+                {
+                    "name": "Top Mistakes After Oil Change",
+                    "english_image_prompt": "Icons representing common errors after an oil change (e.g., not checking level, overtightening). Cautionary, informative.",
+                    "arabic_post_prompt": "اكتب منشورًا باللغة العربية الفصحى عن الأخطاء الشائعة التي يرتكبها البعض بعد تغيير زيت المحرك وكيفية تجنبها.",
+                    "arabic_image_prompt": "أيقونات تمثل الأخطاء الشائعة بعد تغيير الزيت (مثل عدم فحص المستوى، الإفراط في الشد)."
+                },
+                {
+                    "name": "Buyer Guide: Brake Fluid",
+                    "english_image_prompt": "Different types of brake fluid bottles, with explanations of DOT ratings. Informative, guide.",
+                    "arabic_post_prompt": "اكتب دليلاً للمشتري باللغة العربية الفصحى حول سائل الفرامل، وأنواعه المختلفة، ومتى يجب تغييره.",
+                    "arabic_image_prompt": "أنواع مختلفة من زجاجات سائل الفرامل، مع شرح تقييمات DOT."
+                },
+                {
+                    "name": "Arabic Testimonial",
+                    "english_image_prompt": "Image of a happy customer smiling next to their car, with the GE for Trading logo, realistic image.",
+                    "arabic_post_prompt": "اكتب شهادة عميل إيجابية قصيرة باللغة العربية الفصحى عن جودة منتجاتنا أو خدماتنا.",
+                    "arabic_image_prompt": "صورة لعميل سعيد يبتسم بجوار سيارته، مع شعار GE for Trading، صورة واقعية."
+                },
+                {
+                    "name": "Behind the Brand: GE Origins",
+                    "english_image_prompt": "Vintage style image related to the founding or history of GE for Trading. Historical, authentic.",
+                    "arabic_post_prompt": "اكتب منشورًا باللغة العربية الفصحى يحكي قصة علامة GE for Trading، نشأتها، وتطورها، ورؤيتها في سوق قطع غيار السيارات.",
+                    "arabic_image_prompt": "صورة على الطراز القديم تتعلق بتأسيس أو تاريخ GE for Trading."
+                },
+                {
+                    "name": "Interactive Poll: Favorite Car Brand",
+                    "english_image_prompt": "Multiple-choice poll design with car logos. Engaging, interactive.",
+                    "arabic_post_prompt": "اطرح استطلاع رأي تفاعلي باللغة العربية الفصحى على المتابعين لسؤالهم عن ماركة سياراتهم المفضلة ولماذا.",
+                    "arabic_image_prompt": "تصميم استطلاع رأي متعدد الخيارات مع شعارات السيارات."
+                },
+                {
+                    "name": "Quote of the Week (Arabic)",
+                    "english_image_prompt": "Luxurious Arabic calligraphy quote image, with a car-related background, elegant design.",
+                    "arabic_post_prompt": "اكتب اقتباسًا أسبوعيًا ملهمًا باللغة العربية الفصحى يتعلق بالسيارات أو الصيانة.",
+                    "arabic_image_prompt": "صورة اقتباس بالخط العربي الفاخر، مع خلفية ذات صلة بالسيارات، تصميم أنيق."
+                },
+                {
+                    "name": "Tech Deep Dive: Lubrication System",
+                    "english_image_prompt": "Detailed diagram of a car's lubrication system showing oil flow.",
+                    "arabic_post_prompt": "ادخل في تفاصيل عميقة باللغة العربية الفصحى حول نظام التزييت في محرك السيارة، وأهمية كل مكون فيه.",
+                    "arabic_image_prompt": "رسم تخطيطي مفصل لنظام تزييت السيارة يوضح تدفق الزيت."
+                },
+                {
+                    "name": "Why You Shouldn’t Delay Maintenance",
+                    "english_image_prompt": "Image showing consequences of delayed maintenance (e.g., damaged part, breakdown).",
+                    "arabic_post_prompt": "اكتب منشورًا باللغة العربية الفصحى عن العواقب السلبية لتأجيل صيانة السيارة وأهمية الالتزام بالمواعيد المحددة.",
+                    "arabic_image_prompt": "صورة تظهر عواقب تأجيل الصيانة (مثل جزء تالف، عطل)."
+                },
+                {
+                    "name": "Customer FAQ: Engine Overheating",
+                    "english_image_prompt": "Car with steam rising from hood, visual cue for overheating.",
+                    "arabic_post_prompt": "أجب على سؤال شائع باللغة العربية الفصحى: 'ماذا أفعل إذا ارتفعت حرارة محرك سيارتي؟' قدم نصائح سريعة وفعالة.",
+                    "arabic_image_prompt": "سيارة يتصاعد منها البخار من غطاء المحرك، إشارة بصرية لارتفاع درجة الحرارة."
+                },
+                {
+                    "name": "Arabic Tip: Summer Car Prep",
+                    "english_image_prompt": "صورة سيارة في أجواء صيفية، مع عناصر تدل على تجهيز السيارة للصيف (مثل فحص سائل التبريد)، صورة منعشة.",
+                    "arabic_post_prompt": "اكتب نصيحة باللغة العربية الفصحى حول كيفية إعداد السيارة لفصل الصيف الحار.",
+                    "arabic_image_prompt": "صورة سيارة في أجواء صيفية، مع عناصر تدل على تجهيز السيارة للصيف (مثل فحص سائل التبريد)، صورة منعشة."
+                },
+                {
+                    "name": "Visual Story: B2B Delivery Journey",
+                    "english_image_prompt": "Map with dotted line showing delivery route, truck icon, and parts boxes.",
+                    "arabic_post_prompt": "احكِ قصة بصرية باللغة العربية الفصحى عن رحلة توصيل قطع الغيار لعملاء B2B، من المستودع حتى نقطة التسليم، مع التركيز على الكفاءة والجودة.",
+                    "arabic_image_prompt": "خريطة بخط منقط يوضح مسار التوصيل، أيقونة شاحنة، وصناديق قطع غيار."
+                },
+                {
+                    "name": "Service Reminder: Brake Inspection",
+                    "english_image_prompt": "Close-up of brake calipers and pads, with a reminder icon.",
+                    "arabic_post_prompt": "اكتب تذكيرًا بخدمة فحص الفرامل باللغة العربية الفصحى، مؤكدًا على أهميتها لسلامتك وسلامة سيارتك.",
+                    "arabic_image_prompt": "لقطة مقربة لمكابس ومكابح الفرامل، مع أيقونة تذكير."
+                },
+                {
+                    "name": "Mini Guide: Choosing Engine Oil",
+                    "english_image_prompt": "Infographic helping choose engine oil based on car type or climate.",
+                    "arabic_post_prompt": "اكتب دليلاً مصغرًا باللغة العربية الفصحى لمساعدة أصحاب السيارات في اختيار زيت المحرك المناسب لسياراتهم.",
+                    "arabic_image_prompt": "رسم معلوماتي يساعد في اختيار زيت المحرك بناءً على نوع السيارة أو المناخ."
+                },
+                {
+                    "name": "Spotlight: GE Team in Action",
+                    "english_image_prompt": "Action shot of GE for Trading team members working together.",
+                    "arabic_post_prompt": "سلط الضوء باللغة العربية الفصحى على فريق GE for Trading أثناء العمل، مع إظهار التعاون والمهارة في خدمة العملاء.",
+                    "arabic_image_prompt": "صورة حركة لأعضاء فريق GE for Trading وهم يعملون معًا."
+                },
+                {
+                    "name": "Explainer: Cabin Filter vs Air Filter",
+                    "english_image_prompt": "Side-by-side image of cabin filter and engine air filter, with clear labels.",
+                    "arabic_post_prompt": "اشرح باللغة العربية الفصحى الفرق بين فلتر تكييف الهواء (فلتر المقصورة) وفلتر هواء المحرك، وأهمية كل منهما.",
+                    "arabic_image_prompt": "صورة جنبًا إلى جنب لفلتر المقصورة وفلتر هواء المحرك، مع تسميات واضحة."
+                },
+                {
+                    "name": "Maintenance Hack of the Week",
+                    "english_image_prompt": "Creative or simple solution to a common car maintenance task, visually depicted.",
+                    "arabic_post_prompt": "شارك خدعة صيانة أسبوعية مفيدة باللغة العربية الفصحى، حل بسيط أو مبتكر لمشكلة شائعة في صيانة السيارة.",
+                    "arabic_image_prompt": "حل إبداعي أو بسيط لمهمة صيانة سيارة شائعة، مصورة بصريًا."
+                }
+            ]
+        }

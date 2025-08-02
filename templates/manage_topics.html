@@ -1,0 +1,181 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Manage Topics for Facebook Pages</h2>
+
+<section class="page-selection">
+    <form action="{{ url_for('topic_routes.manage_topics_page') }}" method="GET">
+
+
+        <label for="selected_page">Select Page for Topic Management:</label>
+        <select id="selected_page" name="selected_page" onchange="this.form.submit()">
+            {% for page_name in page_names %}
+            <option value="{{ page_name }}" {% if page_name == selected_page_name %}selected{% endif %}>{{ page_name }}</option>
+            {% else %}
+            <option value="">No pages configured</option>
+            {% endfor %}
+        </select>
+        <input type="hidden" name="selected_page_name" value="{{ selected_page_name }}"> {# Hidden field to ensure page name persists #}
+    </form>
+</section>
+
+{# Flashes are usually handled in base.html for consistency across pages #}
+{% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+    <ul class="flashes">
+        {% for category, message in messages %}
+        <li class="{{ category }}">{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+{% endwith %}
+
+
+{% if selected_page_name %}
+<section class="topics-list">
+    <h3>Topics for "{{ selected_page_name }}"</h3>
+    <form id="delete_topics_form" action="{{ url_for('topic_routes.manage_topics_page', selected_page=selected_page_name) }}" method="POST">
+        <input type="hidden" name="action" value="delete_topic">
+        <input type="hidden" name="selected_page_name" value="{{ selected_page_name }}"> {# Pass page name #}
+        <div class="scrollable-table-container">
+            <table class="data-table treeview">
+                <thead>
+                    <tr>
+                        <th><input type="checkbox" id="select_all_topics" onclick="toggleAllCheckboxes(this, 'selected_topics_to_delete')"></th>
+                        <th>Topic Name</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for topic in topics %}
+                    <tr class="{% if selected_topic and topic.name == selected_topic.name %}selected-row{% endif %}" onclick="window.location.href='{{ url_for('topic_routes.manage_topics_page', selected_page=selected_page_name, selected_topic=topic.name) }}'">
+                        <td><input type="checkbox" name="selected_topics_to_delete" value="{{ topic.name }}"></td>
+                        <td>{{ topic.name }}</td>
+                        <td>
+                            <button type="button" onclick="event.stopPropagation(); renameTopic('{{ topic.name | e }}', '{{ selected_page_name | e }}')">Rename</button>
+                            {# Individual delete button will submit the form, targeting only itself #}
+                            <button type="submit" name="selected_topics_to_delete" value="{{ topic.name }}" onclick="return confirm('Are you sure you want to delete this topic?'); event.stopPropagation();">Delete</button>
+                        </td>
+                    </tr>
+                    {% else %}
+                    <tr><td colspan="3">No topics defined for this page.</td></tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        {% if topics %}
+        <button type="submit" onclick="return confirm('Are you sure you want to delete selected topics?');">Delete Selected Topics</button>
+        {% endif %}
+    </form>
+
+    <div class="topic-actions">
+        <h4>Add New Topic</h4>
+        <form action="{{ url_for('topic_routes.manage_topics_page', selected_page=selected_page_name) }}" method="POST">
+            <input type="hidden" name="action" value="add_topic">
+            <input type="hidden" name="selected_page_name" value="{{ selected_page_name }}"> {# Pass page name #}
+            <input type="text" name="new_topic_name" placeholder="Enter new topic name" required>
+            <button type="submit">Add Single Topic</button>
+        </form>
+        <form action="{{ url_for('topic_routes.manage_topics_page', selected_page=selected_page_name) }}" method="POST">
+            <input type="hidden" name="action" value="add_topics_from_list">
+            <input type="hidden" name="selected_page_name" value="{{ selected_page_name }}"> {# Pass page name #}
+            <label for="topic_list_text">Paste List of Topics (one per line):</label><br>
+            <textarea id="topic_list_text" name="topic_list_text" rows="5" cols="50" placeholder="Topic 1&#10;Topic 2"></textarea><br>
+            <button type="submit">Add Topics from List</button>
+        </form>
+    </div>
+</section>
+
+<section class="edit-prompts">
+    <h3>Edit Prompts for Selected Topic: "{{ selected_topic.name if selected_topic else 'None Selected' }}"</h3>
+    {% if selected_topic %}
+    <form action="{{ url_for('topic_routes.manage_topics_page', selected_page=selected_page_name, selected_topic=selected_topic.name) }}" method="POST">
+        <input type="hidden" name="action" value="update_topic_prompts">
+        <input type="hidden" name="selected_page_name" value="{{ selected_page_name }}"> {# Needed to identify page after post #}
+        <input type="hidden" name="topic_name_to_update" value="{{ selected_topic.name }}"> {# Identify which topic to update #}
+
+        <div class="form-group">
+            <label for="english_post_prompt">English Post Prompt:</label>
+            <textarea id="english_post_prompt" name="english_post_prompt" rows="4">{{ selected_topic.english_post_prompt }}</textarea>
+        </div>
+        <div class="form-group">
+            <label for="english_image_prompt">English Image Prompt:</label>
+            <textarea id="english_image_prompt" name="english_image_prompt" rows="4">{{ selected_topic.english_image_prompt }}</textarea>
+        </div>
+        <div class="form-group">
+            <label for="arabic_post_prompt">Arabic Post Prompt:</label>
+            <textarea id="arabic_post_prompt" name="arabic_post_prompt" rows="4">{{ selected_topic.arabic_post_prompt }}</textarea>
+        </div>
+        <div class="form-group">
+            <label for="arabic_image_prompt">Arabic Image Prompt:</label>
+            <textarea id="arabic_image_prompt" name="arabic_image_prompt" rows="4">{{ selected_topic.arabic_image_prompt }}</textarea>
+        </div>
+        <button type="submit">Update Selected Topic Prompts</button>
+    </form>
+    <form action="{{ url_for('topic_routes.manage_topics_page', selected_page=selected_page_name) }}" method="POST">
+        <input type="hidden" name="action" value="generate_prompts_gemini">
+        <input type="hidden" name="selected_page_name" value="{{ selected_page_name }}"> {# Pass page name #}
+        {# This can generate for multiple selected topics if they were selected via checkboxes #}
+        {# For now, if only one topic is selected via click, pass that one. #}
+        <input type="hidden" name="selected_topics_to_generate" value="{{ selected_topic.name }}">
+        
+        <button type="submit" {% if not gemini_available %}disabled title="Gemini API Key not configured or library not available"{% endif %}>Generate Prompts with Gemini (for selected topic)</button>
+    </form>
+    {% else %}
+    <p>Please select a single topic from the list above to view and edit its prompts.</p>
+    {% endif %}
+</section>
+<section class="activity-log">
+    <h3>Activity Log</h3>
+    <pre>{{ manage_topics_log | join('\n') }}</pre>
+</section>
+{% else %}
+<p>No Facebook page selected. Please select a page above.</p>
+{% endif %}
+
+<script>
+    // Function to toggle all checkboxes (already global in scripts.js, but good to have here for reference)
+    function toggleAllCheckboxes(source, name) {
+        checkboxes = document.querySelectorAll('input[name="' + name + '"]');
+        for(var i=0, n=checkboxes.length; i<n; i++) {
+            checkboxes[i].checked = source.checked;
+        }
+    }
+
+    function renameTopic(oldName, pageName) {
+        let newName = prompt("Rename '\" + oldName + \"' to:\", oldName);
+        if (newName !== null && newName.trim() !== '' && newName.trim() !== oldName) {
+            let form = document.createElement('form');
+            form.method = 'POST';
+            form.action = \"{{ url_for('topic_routes.manage_topics_page') }}\";
+
+            let actionInput = document.createElement('input');
+            actionInput.type = 'hidden';
+            actionInput.name = 'action';
+            actionInput.value = 'rename_topic';
+            form.appendChild(actionInput);
+            let pageNameInput = document.createElement('input');
+            pageNameInput.type = 'hidden';
+            pageNameInput.name = 'selected_page_name';
+            pageNameInput.value = pageName;
+            form.appendChild(pageNameInput);
+
+            let oldNameInput = document.createElement('input');
+            oldNameInput.type = 'hidden';
+            oldNameInput.name = 'selected_topic_name_old';
+            oldNameInput.value = oldName;
+            form.appendChild(oldNameInput);
+            let newNameInput = document.createElement('input');
+            newNameInput.type = 'hidden';
+            newNameInput.name = 'new_topic_name';
+            newNameInput.value = newName.trim();
+            form.appendChild(newNameInput);
+            
+            document.body.appendChild(form);
+            form.submit();
+        } else if (newName !== null && newName.trim() === '') {
+            alert('Topic name cannot be empty.');
+        }
+    }
+</script>
+{% endblock %}

@@ -1,0 +1,99 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Manage Facebook Page Details</h2>
+
+<section class="page-selection">
+    <form action="{{ url_for('page_routes.page_details_page') }}" method="GET">
+        <label for="selected_page_name_select">Select Page:</label>
+        <select id="selected_page_name_select" name="selected_page" onchange="this.form.submit()">
+            {% for page_name in page_names %}
+            <option value="{{ page_name }}" {% if selected_page and page_name == selected_page.page_name %}selected{% endif %}>{{ page_name }}</option>
+            {% else %}
+            <option value="">No pages configured</option>
+            {% endfor %}
+        </select>
+    </form>
+    <form action="{{ url_for('page_routes.page_details_page') }}" method="POST" style="margin-top: 10px;">
+        <input type="hidden" name="action" value="add_page">
+        <label for="new_page_name">Add New Page:</label>
+        <input type="text" id="new_page_name" name="new_page_name" placeholder="New Page Name" required>
+        <button type="submit">Add Page</button>
+    </form>
+</section>
+
+{# Flashes are usually handled in base.html for consistency across pages #}
+{% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+    <ul class="flashes">
+        {% for category, message in messages %}
+        <li class="{{ category }}">{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+{% endwith %}
+
+
+{% if selected_page %}
+<section class="edit-page-details">
+    <h3>Edit Details for "{{ selected_page.page_name }}"</h3>
+    <form action="{{ url_for('page_routes.page_details_page') }}" method="POST">
+        <input type="hidden" name="action" value="update_page">
+        <input type="hidden" name="original_page_name" value="{{ selected_page.page_name }}"> {# Keep original name for identification #}
+        
+        <div class="form-group">
+            <label for="page_name">Page Name:</label>
+            <input type="text" id="page_name" name="page_name" value="{{ selected_page.page_name }}" required>
+        </div>
+        <div class="form-group">
+            <label for="facebook_page_id">Facebook Page ID:</label>
+            <input type="text" id="facebook_page_id" name="facebook_page_id" value="{{ selected_page.facebook_page_id }}">
+        </div>
+        <div class="form-group">
+            <label for="facebook_access_token">Facebook Access Token:</label>
+            {# Using type="password" is good for basic hiding #}
+            <input type="password" id="facebook_access_token" name="facebook_access_token" value="{{ selected_page.facebook_access_token }}">
+        </div>
+        <div class="form-group">
+            <label for="english_contact_info">English Contact Info:</label>
+            <textarea id="english_contact_info" name="english_contact_info" rows="5">{{ selected_page.english_contact_info }}</textarea>
+        </div>
+        <div class="form-group">
+            <label for="arabic_contact_info">Arabic Contact Info:</label>
+            <textarea id="arabic_contact_info" name="arabic_contact_info" rows="5">{{ selected_page.arabic_contact_info }}</textarea>
+        </div>
+        <button type="submit">Update Selected Page</button>
+    </form>
+    <form action="{{ url_for('page_routes.page_details_page') }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this page and all its data? This cannot be undone.');">
+        <input type="hidden" name="action" value="delete_page">
+        <input type="hidden" name="page_name" value="{{ selected_page.page_name }}"> {# Pass page name for deletion #}
+        <button type="submit" class="button-danger">Delete Selected Page</button>
+    </form>
+
+    <h3>Default Prompts for Page</h3>
+    <form action="{{ url_for('page_routes.page_details_page') }}" method="POST">
+        <input type="hidden" name="action" value="update_default_prompts">
+        <input type="hidden" name="original_page_name" value="{{ selected_page.page_name }}"> {# Needed to identify page after post #}
+        <div class="form-group">
+            <label for="default_prompt_en">Default English Post Prompt:</label>
+            <textarea id="default_prompt_en" name="default_prompt_en" rows="3">{{ page_default_prompts.default_prompt_en }}</textarea>
+        </div>
+        <div class="form-group">
+            <label for="default_prompt_ar">Default Arabic Post Prompt:</label>
+            <textarea id="default_prompt_ar" name="default_prompt_ar" rows="3">{{ page_default_prompts.default_prompt_ar }}</textarea>
+        </div>
+        <div class="form-group">
+            <label for="default_image_prompt_en">Default English Image Prompt:</label>
+            <textarea id="default_image_prompt_en" name="default_image_prompt_en" rows="3">{{ page_default_prompts.default_image_prompt_en }}</textarea>
+        </div>
+        <div class="form-group">
+            <label for="default_image_prompt_ar">Default Arabic Image Prompt:</label>
+            <textarea id="default_image_prompt_ar" name="default_image_prompt_ar" rows="3">{{ page_default_prompts.default_image_prompt_ar }}</textarea>
+        </div>
+        <button type="submit">Update Default Prompts</button>
+    </form>
+</section>
+{% else %}
+<p>No page selected. Please select a page above or add a new one.</p>
+{% endif %}
+{% endblock %}

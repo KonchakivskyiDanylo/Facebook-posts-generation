@@ -1,0 +1,1051 @@
+{
+    "output_dir": "D:\\Facebook_Posts_generation\\Generated_Posts_Output",
+    "gemini_model": "gemini-1.5-flash",
+    "gemini_temperature": 0.7,
+    "num_posts_default": 84,
+    "master_topic_names": [],
+    "master_image_prompts": {},
+    "master_arabic_details": {},
+    "facebook_pages": [
+        {
+            "page_name": "GE for Trading",
+            "english_contact_info": "Website: https://www.getradingeg.com\nTax ID: 470-012-110\nAddress: 5A Mobarak Street off Asmaa Fahmy Ard El Golf , Heliopolis , Cairo , Egypt.\nPostal Code : 11586\nLocation: https://maps.app.goo.gl/XhA2E7S1HvjJSM4q8",
+            "arabic_contact_info": "الموقع الاكترونى: https://www.getradingeg.com/ar\nتسجيل ضريبى: 470-012-110\nالعنوان: 5أ ش مبارك من اسماء فهمى خلف الرقابه الادارية ارض الجولف مصر الجديدة القاهرة\nاللوكيشن: https://maps.app.goo.gl/XhA2E7S1HvjJSM4q8",
+            "topics": [
+                {
+                    "name": "Product Highlight",
+                    "english_image_prompt": "Generic English image prompt for 'Product Highlight'.",
+                    "arabic_post_prompt": "منشور عام باللغة العربية عن 'Product Highlight'.",
+                    "arabic_image_prompt": "صورة عامة لـ 'Product Highlight'."
+                },
+                {
+                    "name": "How-To: Change Engine Oil",
+                    "english_image_prompt": "Generic English image prompt for 'How-To: Change Engine Oil'.",
+                    "arabic_post_prompt": "منشور عام باللغة العربية عن 'How-To: Change Engine Oil'.",
+                    "arabic_image_prompt": "صورة عامة لـ 'How-To: Change Engine Oil'."
+                },
+                {
+                    "name": "Customer Testimonial",
+                    "english_image_prompt": "Generic English image prompt for 'Customer Testimonial'.",
+                    "arabic_post_prompt": "منشور عام باللغة العربية عن 'Customer Testimonial'.",
+                    "arabic_image_prompt": "صورة عامة لـ 'Customer Testimonial'."
+                },
+                {
+                    "name": "Promotional Offer",
+                    "english_image_prompt": "Generic English image prompt for 'Promotional Offer'.",
+                    "arabic_post_prompt": "منشور عام باللغة العربية عن 'Promotional Offer'.",
+                    "arabic_image_prompt": "صورة عامة لـ 'Promotional Offer'."
+                },
+                {
+                    "name": "Behind the Scenes: Warehouse Tour",
+                    "english_image_prompt": "Generic English image prompt for 'Behind the Scenes: Warehouse Tour'.",
+                    "arabic_post_prompt": "منشور عام باللغة العربية عن 'Behind the Scenes: Warehouse Tour'.",
+                    "arabic_image_prompt": "صورة عامة لـ 'Behind the Scenes: Warehouse Tour'."
+                },
+                {
+                    "name": "Maintenance Tips",
+                    "english_image_prompt": "Generic English image prompt for 'Maintenance Tips'.",
+                    "arabic_post_prompt": "منشور عام باللغة العربية عن 'Maintenance Tips'.",
+                    "arabic_image_prompt": "صورة عامة لـ 'Maintenance Tips'."
+                },
+                {
+                    "name": "FAQ: Genuine vs Aftermarket Parts",
+                    "english_image_prompt": "Generic English image prompt for 'FAQ: Genuine vs Aftermarket Parts'.",
+                    "arabic_post_prompt": "منشور عام باللغة العربية عن 'FAQ: Genuine vs Aftermarket Parts'.",
+                    "arabic_image_prompt": "صورة عامة لـ 'FAQ: Genuine vs Aftermarket Parts'."
+                },
+                {
+                    "name": "Myth Busting: Engine Additives",
+                    "english_image_prompt": "Generic English image prompt for 'Myth Busting: Engine Additives'.",
+                    "arabic_post_prompt": "منشور عام باللغة العربية عن 'Myth Busting: Engine Additives'.",
+                    "arabic_image_prompt": "صورة عامة لـ 'Myth Busting: Engine Additives'."
+                },
+                {
+                    "name": "Industry News: Automotive Trends",
+                    "english_image_prompt": "Generic English image prompt for 'Industry News: Automotive Trends'.",
+                    "arabic_post_prompt": "منشور عام باللغة العربية عن 'Industry News: Automotive Trends'.",
+                    "arabic_image_prompt": "صورة عامة لـ 'Industry News: Automotive Trends'."
+                },
+                {
+                    "name": "Before and After: Oil Change",
+                    "english_image_prompt": "Generic English image prompt for 'Before and After: Oil Change'.",
+                    "arabic_post_prompt": "منشور عام باللغة العربية عن 'Before and After: Oil Change'.",
+                    "arabic_image_prompt": "صورة عامة لـ 'Before and After: Oil Change'."
+                },
+                {
+                    "name": "Interactive Quiz: Car Knowledge",
+                    "english_image_prompt": "Generic English image prompt for 'Interactive Quiz: Car Knowledge'.",
+                    "arabic_post_prompt": "منشور عام باللغة العربية عن 'Interactive Quiz: Car Knowledge'.",
+                    "arabic_image_prompt": "صورة عامة لـ 'Interactive Quiz: Car Knowledge'."
+                },
+                {
+                    "name": "Brand Story: GE for Trading",
+                    "english_image_prompt": "Generic English image prompt for 'Brand Story: GE for Trading'.",
+                    "arabic_post_prompt": "منشور عام باللغة العربية عن 'Brand Story: GE for Trading'.",
+                    "arabic_image_prompt": "صورة عامة لـ 'Brand Story: GE for Trading'."
+                },
+                {
+                    "name": "Staff Spotlight: Meet the Team",
+                    "english_image_prompt": "Generic English image prompt for 'Staff Spotlight: Meet the Team'.",
+                    "arabic_post_prompt": "منشور عام باللغة العربية عن 'Staff Spotlight: Meet the Team'.",
+                    "arabic_image_prompt": "صورة عامة لـ 'Staff Spotlight: Meet the Team'."
+                },
+                {
+                    "name": "User-Generated Content",
+                    "english_image_prompt": "Generic English image prompt for 'User-Generated Content'.",
+                    "arabic_post_prompt": "منشور عام باللغة العربية عن 'User-Generated Content'.",
+                    "arabic_image_prompt": "صورة عامة لـ 'User-Generated Content'."
+                },
+                {
+                    "name": "Seasonal Tips: Summer Engine Care",
+                    "english_image_prompt": "Generic English image prompt for 'Seasonal Tips: Summer Engine Care'.",
+                    "arabic_post_prompt": "منشور عام باللغة العربية عن 'Seasonal Tips: Summer Engine Care'.",
+                    "arabic_image_prompt": "صورة عامة لـ 'Seasonal Tips: Summer Engine Care'."
+                },
+                {
+                    "name": "Service Reminder: Oil Change Due?",
+                    "english_image_prompt": "Generic English image prompt for 'Service Reminder: Oil Change Due?'.",
+                    "arabic_post_prompt": "منشور عام باللغة العربية عن 'Service Reminder: Oil Change Due?'.",
+                    "arabic_image_prompt": "صورة عامة لـ 'Service Reminder: Oil Change Due?'."
+                },
+                {
+                    "name": "Comparison: Bosch vs Denso Spark Plugs",
+                    "english_image_prompt": "Generic English image prompt for 'Comparison: Bosch vs Denso Spark Plugs'.",
+                    "arabic_post_prompt": "منشور عام باللغة العربية عن 'Comparison: Bosch vs Denso Spark Plugs'.",
+                    "arabic_image_prompt": "صورة عامة لـ 'Comparison: Bosch vs Denso Spark Plugs'."
+                },
+                {
+                    "name": "Unboxing: Brake Pad Kit",
+                    "english_image_prompt": "Generic English image prompt for 'Unboxing: Brake Pad Kit'.",
+                    "arabic_post_prompt": "منشور عام باللغة العربية عن 'Unboxing: Brake Pad Kit'.",
+                    "arabic_image_prompt": "صورة عامة لـ 'Unboxing: Brake Pad Kit'."
+                },
+                {
+                    "name": "Safety Tips: Tire Pressure",
+                    "english_image_prompt": "Generic English image prompt for 'Safety Tips: Tire Pressure'.",
+                    "arabic_post_prompt": "منشور عام باللغة العربية عن 'Safety Tips: Tire Pressure'.",
+                    "arabic_image_prompt": "صورة عامة لـ 'Safety Tips: Tire Pressure'."
+                },
+                {
+                    "name": "Value Proposition: Why Choose GE",
+                    "english_image_prompt": "Generic English image prompt for 'Value Proposition: Why Choose GE'.",
+                    "arabic_post_prompt": "منشور عام باللغة العربية عن 'Value Proposition: Why Choose GE'.",
+                    "arabic_image_prompt": "صورة عامة لـ 'Value Proposition: Why Choose GE'."
+                },
+                {
+                    "name": "Top 5 Spare Parts for Sedans",
+                    "english_image_prompt": "Generic English image prompt for 'Top 5 Spare Parts for Sedans'.",
+                    "arabic_post_prompt": "منشور عام باللغة العربية عن 'Top 5 Spare Parts for Sedans'.",
+                    "arabic_image_prompt": "صورة عامة لـ 'Top 5 Spare Parts for Sedans'."
+                },
+                {
+                    "name": "Tip of the Week",
+                    "english_image_prompt": "Generic English image prompt for 'Tip of the Week'.",
+                    "arabic_post_prompt": "منشور عام باللغة العربية عن 'Tip of the Week'.",
+                    "arabic_image_prompt": "صورة عامة لـ 'Tip of the Week'."
+                },
+                {
+                    "name": "Explainer: What is a Timing Belt?",
+                    "english_image_prompt": "Generic English image prompt for 'Explainer: What is a Timing Belt?'.",
+                    "arabic_post_prompt": "منشور عام باللغة العربية عن 'Explainer: What is a Timing Belt?'.",
+                    "arabic_image_prompt": "صورة عامة لـ 'Explainer: What is a Timing Belt?'."
+                },
+                {
+                    "name": "Common Mistakes Car Owners Make",
+                    "english_image_prompt": "Generic English image prompt for 'Common Mistakes Car Owners Make'.",
+                    "arabic_post_prompt": "منشور عام باللغة العربية عن 'Common Mistakes Car Owners Make'.",
+                    "arabic_image_prompt": "صورة عامة لـ 'Common Mistakes Car Owners Make'."
+                },
+                {
+                    "name": "Weekly Promo Spotlight",
+                    "english_image_prompt": "Generic English image prompt for 'Weekly Promo Spotlight'.",
+                    "arabic_post_prompt": "منشور عام باللغة العربية عن 'Weekly Promo Spotlight'.",
+                    "arabic_image_prompt": "صورة عامة لـ 'Weekly Promo Spotlight'."
+                },
+                {
+                    "name": "How-To: Check Coolant Level",
+                    "english_image_prompt": "Generic English image prompt for 'How-To: Check Coolant Level'.",
+                    "arabic_post_prompt": "منشور عام باللغة العربية عن 'How-To: Check Coolant Level'.",
+                    "arabic_image_prompt": "صورة عامة لـ 'How-To: Check Coolant Level'."
+                },
+                {
+                    "name": "Debunking Car Maintenance Myths",
+                    "english_image_prompt": "Generic English image prompt for 'Debunking Car Maintenance Myths'.",
+                    "arabic_post_prompt": "منشور عام باللغة العربية عن 'Debunking Car Maintenance Myths'.",
+                    "arabic_image_prompt": "صورة عامة لـ 'Debunking Car Maintenance Myths'."
+                },
+                {
+                    "name": "Visual Guide: Filters You Need",
+                    "english_image_prompt": "Generic English image prompt for 'Visual Guide: Filters You Need'.",
+                    "arabic_post_prompt": "منشور عام باللغة العربية عن 'Visual Guide: Filters You Need'.",
+                    "arabic_image_prompt": "صورة عامة لـ 'Visual Guide: Filters You Need'."
+                },
+                {
+                    "name": "Feature Focus: Synthetic Oil",
+                    "english_image_prompt": "Generic English image prompt for 'Feature Focus: Synthetic Oil'.",
+                    "arabic_post_prompt": "منشور عام باللغة العربية عن 'Feature Focus: Synthetic Oil'.",
+                    "arabic_image_prompt": "صورة عامة لـ 'Feature Focus: Synthetic Oil'."
+                },
+                {
+                    "name": "FAQ: How Often to Replace Brake Pads?",
+                    "english_image_prompt": "Generic English image prompt for 'FAQ: How Often to Replace Brake Pads?'.",
+                    "arabic_post_prompt": "منشور عام باللغة العربية عن 'FAQ: How Often to Replace Brake Pads?'.",
+                    "arabic_image_prompt": "صورة عامة لـ 'FAQ: How Often to Replace Brake Pads?'."
+                },
+                {
+                    "name": "Spotlight: Best Sellers This Month",
+                    "english_image_prompt": "Generic English image prompt for 'Spotlight: Best Sellers This Month'.",
+                    "arabic_post_prompt": "منشور عام باللغة العربية عن 'Spotlight: Best Sellers This Month'.",
+                    "arabic_image_prompt": "صورة عامة لـ 'Spotlight: Best Sellers This Month'."
+                },
+                {
+                    "name": "Tech Talk: Engine Diagnostics",
+                    "english_image_prompt": "Generic English image prompt for 'Tech Talk: Engine Diagnostics'.",
+                    "arabic_post_prompt": "منشور عام باللغة العربية عن 'Tech Talk: Engine Diagnostics'.",
+                    "arabic_image_prompt": "صورة عامة لـ 'Tech Talk: Engine Diagnostics'."
+                },
+                {
+                    "name": "How-To: Clean Battery Terminals",
+                    "english_image_prompt": "Generic English image prompt for 'How-To: Clean Battery Terminals'.",
+                    "arabic_post_prompt": "منشور عام باللغة العربية عن 'How-To: Clean Battery Terminals'.",
+                    "arabic_image_prompt": "صورة عامة لـ 'How-To: Clean Battery Terminals'."
+                },
+                {
+                    "name": "Video: Warehouse Tour",
+                    "english_image_prompt": "Generic English image prompt for 'Video: Warehouse Tour'.",
+                    "arabic_post_prompt": "منشور عام باللغة العربية عن 'Video: Warehouse Tour'.",
+                    "arabic_image_prompt": "صورة عامة لـ 'Video: Warehouse Tour'."
+                },
+                {
+                    "name": "Quote About Reliability",
+                    "english_image_prompt": "Generic English image prompt for 'Quote About Reliability'.",
+                    "arabic_post_prompt": "منشور عام باللغة العربية عن 'Quote About Reliability'.",
+                    "arabic_image_prompt": "صورة عامة لـ 'Quote About Reliability'."
+                },
+                {
+                    "name": "Social Proof: 5-Star Review",
+                    "english_image_prompt": "Generic English image prompt for 'Social Proof: 5-Star Review'.",
+                    "arabic_post_prompt": "منشور عام باللغة العربية عن 'Social Proof: 5-Star Review'.",
+                    "arabic_image_prompt": "صورة عامة لـ 'Social Proof: 5-Star Review'."
+                },
+                {
+                    "name": "What’s New: Weekly Arrivals",
+                    "english_image_prompt": "Generic English image prompt for 'What’s New: Weekly Arrivals'.",
+                    "arabic_post_prompt": "منشور عام باللغة العربية عن 'What’s New: Weekly Arrivals'.",
+                    "arabic_image_prompt": "صورة عامة لـ 'What’s New: Weekly Arrivals'."
+                },
+                {
+                    "name": "Explainer: Radiator Function",
+                    "english_image_prompt": "Generic English image prompt for 'Explainer: Radiator Function'.",
+                    "arabic_post_prompt": "منشور عام باللغة العربية عن 'Explainer: Radiator Function'.",
+                    "arabic_image_prompt": "صورة عامة لـ 'Explainer: Radiator Function'."
+                },
+                {
+                    "name": "Top 3 Reasons to Use Genuine Parts",
+                    "english_image_prompt": "Generic English image prompt for 'Top 3 Reasons to Use Genuine Parts'.",
+                    "arabic_post_prompt": "منشور عام باللغة العربية عن 'Top 3 Reasons to Use Genuine Parts'.",
+                    "arabic_image_prompt": "صورة عامة لـ 'Top 3 Reasons to Use Genuine Parts'."
+                },
+                {
+                    "name": "Safety Check: Warning Lights",
+                    "english_image_prompt": "Generic English image prompt for 'Safety Check: Warning Lights'.",
+                    "arabic_post_prompt": "منشور عام باللغة العربية عن 'Safety Check: Warning Lights'.",
+                    "arabic_image_prompt": "صورة عامة لـ 'Safety Check: Warning Lights'."
+                },
+                {
+                    "name": "Employee Tips: Engine Health",
+                    "english_image_prompt": "Generic English image prompt for 'Employee Tips: Engine Health'.",
+                    "arabic_post_prompt": "منشور عام باللغة العربية عن 'Employee Tips: Engine Health'.",
+                    "arabic_image_prompt": "صورة عامة لـ 'Employee Tips: Engine Health'."
+                },
+                {
+                    "name": "Customer Question of the Week",
+                    "english_image_prompt": "Generic English image prompt for 'Customer Question of the Week'.",
+                    "arabic_post_prompt": "منشور عام باللغة العربية عن 'Customer Question of the Week'.",
+                    "arabic_image_prompt": "صورة عامة لـ 'Customer Question of the Week'."
+                },
+                {
+                    "name": "Arabic Post: Importance of Oil Filters",
+                    "english_image_prompt": "Generic English image prompt for 'Arabic Post: Importance of Oil Filters'.",
+                    "arabic_post_prompt": "منشور عام باللغة العربية عن 'Arabic Post: Importance of Oil Filters'.",
+                    "arabic_image_prompt": "صورة عامة لـ 'Arabic Post: Importance of Oil Filters'."
+                },
+                {
+                    "name": "Checklist: Travel-Ready Car",
+                    "english_image_prompt": "Generic English image prompt for 'Checklist: Travel-Ready Car'.",
+                    "arabic_post_prompt": "منشور عام باللغة العربية عن 'Checklist: Travel-Ready Car'.",
+                    "arabic_image_prompt": "صورة عامة لـ 'Checklist: Travel-Ready Car'."
+                },
+                {
+                    "name": "Weekend Deal Announcement",
+                    "english_image_prompt": "Generic English image prompt for 'Weekend Deal Announcement'.",
+                    "arabic_post_prompt": "منشور عام باللغة العربية عن 'Weekend Deal Announcement'.",
+                    "arabic_image_prompt": "صورة عامة لـ 'Weekend Deal Announcement'."
+                },
+                {
+                    "name": "Did You Know? Car Trivia",
+                    "english_image_prompt": "Generic English image prompt for 'Did You Know? Car Trivia'.",
+                    "arabic_post_prompt": "منشور عام باللغة العربية عن 'Did You Know? Car Trivia'.",
+                    "arabic_image_prompt": "صورة عامة لـ 'Did You Know? Car Trivia'."
+                },
+                {
+                    "name": "Case Study: Oil Brand Comparison",
+                    "english_image_prompt": "Generic English image prompt for 'Case Study: Oil Brand Comparison'.",
+                    "arabic_post_prompt": "منشور عام باللغة العربية عن 'Case Study: Oil Brand Comparison'.",
+                    "arabic_image_prompt": "صورة عامة لـ 'Case Study: Oil Brand Comparison'."
+                },
+                {
+                    "name": "Visual Tip: How Belts Work",
+                    "english_image_prompt": "Generic English image prompt for 'Visual Tip: How Belts Work'.",
+                    "arabic_post_prompt": "منشور عام باللغة العربية عن 'Visual Tip: How Belts Work'.",
+                    "arabic_image_prompt": "صورة عامة لـ 'Visual Tip: How Belts Work'."
+                },
+                {
+                    "name": "Arabic Video Post",
+                    "english_image_prompt": "Generic English image prompt for 'Arabic Video Post'.",
+                    "arabic_post_prompt": "منشور عام باللغة العربية عن 'Arabic Video Post'.",
+                    "arabic_image_prompt": "صورة عامة لـ 'Arabic Video Post'."
+                },
+                {
+                    "name": "Best Tools for Home Car Care",
+                    "english_image_prompt": "Generic English image prompt for 'Best Tools for Home Car Care'.",
+                    "arabic_post_prompt": "منشور عام باللغة العربية عن 'Best Tools for Home Car Care'.",
+                    "arabic_image_prompt": "صورة عامة لـ 'Best Tools for Home Car Care'."
+                },
+                {
+                    "name": "Explainer: Fuel Injection vs Carburetor",
+                    "english_image_prompt": "Generic English image prompt for 'Explainer: Fuel Injection vs Carburetor'.",
+                    "arabic_post_prompt": "منشور عام باللغة العربية عن 'Explainer: Fuel Injection vs Carburetor'.",
+                    "arabic_image_prompt": "صورة عامة لـ 'Explainer: Fuel Injection vs Carburetor'."
+                },
+                {
+                    "name": "Sustainability Post: Oil Recycling",
+                    "english_image_prompt": "Generic English image prompt for 'Sustainability Post: Oil Recycling'.",
+                    "arabic_post_prompt": "منشور عام باللغة العربية عن 'Sustainability Post: Oil Recycling'.",
+                    "arabic_image_prompt": "صورة عامة لـ 'Sustainability Post: Oil Recycling'."
+                },
+                {
+                    "name": "Maintenance Schedule Basics",
+                    "english_image_prompt": "Generic English image prompt for 'Maintenance Schedule Basics'.",
+                    "arabic_post_prompt": "منشور عام باللغة العربية عن 'Maintenance Schedule Basics'.",
+                    "arabic_image_prompt": "صورة عامة لـ 'Maintenance Schedule Basics'."
+                },
+                {
+                    "name": "Top Mistakes After Oil Change",
+                    "english_image_prompt": "Generic English image prompt for 'Top Mistakes After Oil Change'.",
+                    "arabic_post_prompt": "منشور عام باللغة العربية عن 'Top Mistakes After Oil Change'.",
+                    "arabic_image_prompt": "صورة عامة لـ 'Top Mistakes After Oil Change'."
+                },
+                {
+                    "name": "Buyer Guide: Brake Fluid",
+                    "english_image_prompt": "Generic English image prompt for 'Buyer Guide: Brake Fluid'.",
+                    "arabic_post_prompt": "منشور عام باللغة العربية عن 'Buyer Guide: Brake Fluid'.",
+                    "arabic_image_prompt": "صورة عامة لـ 'Buyer Guide: Brake Fluid'."
+                },
+                {
+                    "name": "Testimonial",
+                    "english_image_prompt": "Generic English image prompt for 'Testimonial'.",
+                    "arabic_post_prompt": "منشور عام باللغة العربية عن 'Testimonial'.",
+                    "arabic_image_prompt": "صورة عامة لـ 'Testimonial'."
+                },
+                {
+                    "name": "Behind the Brand: GE Origins",
+                    "english_image_prompt": "Generic English image prompt for 'Behind the Brand: GE Origins'.",
+                    "arabic_post_prompt": "منشور عام باللغة العربية عن 'Behind the Brand: GE Origins'.",
+                    "arabic_image_prompt": "صورة عامة لـ 'Behind the Brand: GE Origins'."
+                },
+                {
+                    "name": "Interactive Poll: Favorite Car Brand",
+                    "english_image_prompt": "Generic English image prompt for 'Interactive Poll: Favorite Car Brand'.",
+                    "arabic_post_prompt": "منشور عام باللغة العربية عن 'Interactive Poll: Favorite Car Brand'.",
+                    "arabic_image_prompt": "صورة عامة لـ 'Interactive Poll: Favorite Car Brand'."
+                },
+                {
+                    "name": "Quote of the Week (Arabic)",
+                    "english_image_prompt": "Generic English image prompt for 'Quote of the Week (Arabic)'.",
+                    "arabic_post_prompt": "منشور عام باللغة العربية عن 'Quote of the Week (Arabic)'.",
+                    "arabic_image_prompt": "صورة عامة لـ 'Quote of the Week (Arabic)'."
+                },
+                {
+                    "name": "Tech Deep Dive: Lubrication System",
+                    "english_image_prompt": "Generic English image prompt for 'Tech Deep Dive: Lubrication System'.",
+                    "arabic_post_prompt": "منشور عام باللغة العربية عن 'Tech Deep Dive: Lubrication System'.",
+                    "arabic_image_prompt": "صورة عامة لـ 'Tech Deep Dive: Lubrication System'."
+                },
+                {
+                    "name": "Why You Shouldn’t Delay Maintenance",
+                    "english_image_prompt": "Generic English image prompt for 'Why You Shouldn’t Delay Maintenance'.",
+                    "arabic_post_prompt": "منشور عام باللغة العربية عن 'Why You Shouldn’t Delay Maintenance'.",
+                    "arabic_image_prompt": "صورة عامة لـ 'Why You Shouldn’t Delay Maintenance'."
+                },
+                {
+                    "name": "Customer FAQ: Engine Overheating",
+                    "english_image_prompt": "Generic English image prompt for 'Customer FAQ: Engine Overheating'.",
+                    "arabic_post_prompt": "منشور عام باللغة العربية عن 'Customer FAQ: Engine Overheating'.",
+                    "arabic_image_prompt": "صورة عامة لـ 'Customer FAQ: Engine Overheating'."
+                },
+                {
+                    "name": "Tip: Summer Car Prep",
+                    "english_image_prompt": "Generic English image prompt for 'Tip: Summer Car Prep'.",
+                    "arabic_post_prompt": "منشور عام باللغة العربية عن 'Tip: Summer Car Prep'.",
+                    "arabic_image_prompt": "صورة عامة لـ 'Tip: Summer Car Prep'."
+                },
+                {
+                    "name": "Visual Story: B2B Delivery Journey",
+                    "english_image_prompt": "Generic English image prompt for 'Visual Story: B2B Delivery Journey'.",
+                    "arabic_post_prompt": "منشور عام باللغة العربية عن 'Visual Story: B2B Delivery Journey'.",
+                    "arabic_image_prompt": "صورة عامة لـ 'Visual Story: B2B Delivery Journey'."
+                },
+                {
+                    "name": "Service Reminder: Brake Inspection",
+                    "english_image_prompt": "Generic English image prompt for 'Service Reminder: Brake Inspection'.",
+                    "arabic_post_prompt": "منشور عام باللغة العربية عن 'Service Reminder: Brake Inspection'.",
+                    "arabic_image_prompt": "صورة عامة لـ 'Service Reminder: Brake Inspection'."
+                },
+                {
+                    "name": "Mini Guide: Choosing Engine Oil",
+                    "english_image_prompt": "Generic English image prompt for 'Mini Guide: Choosing Engine Oil'.",
+                    "arabic_post_prompt": "منشور عام باللغة العربية عن 'Mini Guide: Choosing Engine Oil'.",
+                    "arabic_image_prompt": "صورة عامة لـ 'Mini Guide: Choosing Engine Oil'."
+                },
+                {
+                    "name": "Spotlight: GE Team in Action",
+                    "english_image_prompt": "Generic English image prompt for 'Spotlight: GE Team in Action'.",
+                    "arabic_post_prompt": "منشور عام باللغة العربية عن 'Spotlight: GE Team in Action'.",
+                    "arabic_image_prompt": "صورة عامة لـ 'Spotlight: GE Team in Action'."
+                },
+                {
+                    "name": "Explainer: Cabin Filter vs Air Filter",
+                    "english_image_prompt": "Generic English image prompt for 'Explainer: Cabin Filter vs Air Filter'.",
+                    "arabic_post_prompt": "منشور عام باللغة العربية عن 'Explainer: Cabin Filter vs Air Filter'.",
+                    "arabic_image_prompt": "صورة عامة لـ 'Explainer: Cabin Filter vs Air Filter'."
+                },
+                {
+                    "name": "Engagement Post",
+                    "english_image_prompt": "Generic English image prompt for 'Engagement Post'.",
+                    "arabic_post_prompt": "منشور عام باللغة العربية عن 'Engagement Post'.",
+                    "arabic_image_prompt": "صورة عامة لـ 'Engagement Post'."
+                },
+                {
+                    "name": "Maintenance Hack of the Week",
+                    "english_image_prompt": "Generic English image prompt for 'Maintenance Hack of the Week'.",
+                    "arabic_post_prompt": "منشور عام باللغة العربية عن 'Maintenance Hack of the Week'.",
+                    "arabic_image_prompt": "صورة عامة لـ 'Maintenance Hack of the Week'."
+                }
+            ]
+        },
+        {
+            "page_name": "GE for trading- fleet management",
+            "english_contact_info": "Website: https://www.getradingeg.com\nTax ID: 470-012-110\nAddress: 5A Mobarak Street off Asmaa Fahmy Ard El Golf , Heliopolis , Cairo , Egypt.\nPostal Code : 11586\nLocation: https://maps.app.goo.gl/XhA2E7S1HvjJSM4q8",
+            "arabic_contact_info": "الموقع الاكترونى: https://www.getradingeg.com/ar\nتسجيل ضريبى: 470-012-110\nالعنوان: 5أ ش مبارك من اسماء فهمى خلف الرقابه الادارية ارض الجولف مصر الجديدة القاهرة\nاللوكيشن: https://maps.app.goo.gl/XhA2E7S1HvjJSM4q8",
+            "topics": [
+                {
+                    "name": "Fuel Price Hike Alert! How are you adapting to the latest fuel price increases in Egypt? Share your tips!",
+                    "english_image_prompt": "Generic English image prompt for 'Fuel Price Hike Alert! How are you adapting to the latest fuel price increases in Egypt? Share your tips!'.",
+                    "arabic_post_prompt": "منشور عام باللغة العربية عن 'Fuel Price Hike Alert! How are you adapting to the latest fuel price increases in Egypt? Share your tips!'.",
+                    "arabic_image_prompt": "صورة عامة لـ 'Fuel Price Hike Alert! How are you adapting to the latest fuel price increases in Egypt? Share your tips!'."
+                },
+                {
+                    "name": "Cutting Fuel Costs in Cairo Traffic: Smart driving habits that can save your fleet money. #FuelEfficiency",
+                    "english_image_prompt": "Generic English image prompt for 'Cutting Fuel Costs in Cairo Traffic: Smart driving habits that can save your fleet money. #FuelEfficiency'.",
+                    "arabic_post_prompt": "منشور عام باللغة العربية عن 'Cutting Fuel Costs in Cairo Traffic: Smart driving habits that can save your fleet money. #FuelEfficiency'.",
+                    "arabic_image_prompt": "صورة عامة لـ 'Cutting Fuel Costs in Cairo Traffic: Smart driving habits that can save your fleet money. #FuelEfficiency'."
+                },
+                {
+                    "name": "The Hidden Cost of Idling: Why letting your engines run in traffic is draining your budget.",
+                    "english_image_prompt": "Generic English image prompt for 'The Hidden Cost of Idling: Why letting your engines run in traffic is draining your budget.'.",
+                    "arabic_post_prompt": "منشور عام باللغة العربية عن 'The Hidden Cost of Idling: Why letting your engines run in traffic is draining your budget.'.",
+                    "arabic_image_prompt": "صورة عامة لـ 'The Hidden Cost of Idling: Why letting your engines run in traffic is draining your budget.'."
+                },
+                {
+                    "name": "Preventive Maintenance: Your Fleet's Best Friend: Schedule vs. reactive repairs – what's more cost-effective?",
+                    "english_image_prompt": "Generic English image prompt for 'Preventive Maintenance: Your Fleet's Best Friend: Schedule vs. reactive repairs – what's more cost-effective?'.",
+                    "arabic_post_prompt": "منشور عام باللغة العربية عن 'Preventive Maintenance: Your Fleet's Best Friend: Schedule vs. reactive repairs – what's more cost-effective?'.",
+                    "arabic_image_prompt": "صورة عامة لـ 'Preventive Maintenance: Your Fleet's Best Friend: Schedule vs. reactive repairs – what's more cost-effective?'."
+                },
+                {
+                    "name": "Tyre Management Tips: Extend tyre life and save on fuel. Simple changes, big impact!",
+                    "english_image_prompt": "Generic English image prompt for 'Tyre Management Tips: Extend tyre life and save on fuel. Simple changes, big impact!'.",
+                    "arabic_post_prompt": "منشور عام باللغة العربية عن 'Tyre Management Tips: Extend tyre life and save on fuel. Simple changes, big impact!'.",
+                    "arabic_image_prompt": "صورة عامة لـ 'Tyre Management Tips: Extend tyre life and save on fuel. Simple changes, big impact!'."
+                },
+                {
+                    "name": "Decoding Maintenance Bills: Understanding common repair costs and how to minimize them.",
+                    "english_image_prompt": "Generic English image prompt for 'Decoding Maintenance Bills: Understanding common repair costs and how to minimize them.'.",
+                    "arabic_post_prompt": "منشور عام باللغة العربية عن 'Decoding Maintenance Bills: Understanding common repair costs and how to minimize them.'.",
+                    "arabic_image_prompt": "صورة عامة لـ 'Decoding Maintenance Bills: Understanding common repair costs and how to minimize them.'."
+                },
+                {
+                    "name": "Vehicle Lifecycle Cost Analysis: Are you looking beyond the purchase price?",
+                    "english_image_prompt": "Generic English image prompt for 'Vehicle Lifecycle Cost Analysis: Are you looking beyond the purchase price?'.",
+                    "arabic_post_prompt": "منشور عام باللغة العربية عن 'Vehicle Lifecycle Cost Analysis: Are you looking beyond the purchase price?'.",
+                    "arabic_image_prompt": "صورة عامة لـ 'Vehicle Lifecycle Cost Analysis: Are you looking beyond the purchase price?'."
+                },
+                {
+                    "name": "Negotiating Parts Discounts: Strategies for fleet managers to reduce expenditure.",
+                    "english_image_prompt": "Generic English image prompt for 'Negotiating Parts Discounts: Strategies for fleet managers to reduce expenditure.'.",
+                    "arabic_post_prompt": "منشور عام باللغة العربية عن 'Negotiating Parts Discounts: Strategies for fleet managers to reduce expenditure.'.",
+                    "arabic_image_prompt": "صورة عامة لـ 'Negotiating Parts Discounts: Strategies for fleet managers to reduce expenditure.'."
+                },
+                {
+                    "name": "Fuel Cards in Egypt: Are you maximizing their benefits for your fleet?",
+                    "english_image_prompt": "Generic English image prompt for 'Fuel Cards in Egypt: Are you maximizing their benefits for your fleet?'.",
+                    "arabic_post_prompt": "منشور عام باللغة العربية عن 'Fuel Cards in Egypt: Are you maximizing their benefits for your fleet?'.",
+                    "arabic_image_prompt": "صورة عامة لـ 'Fuel Cards in Egypt: Are you maximizing their benefits for your fleet?'."
+                },
+                {
+                    "name": "Budgeting for the Unexpected: How to prepare for sudden repair costs.",
+                    "english_image_prompt": "Generic English image prompt for 'Budgeting for the Unexpected: How to prepare for sudden repair costs.'.",
+                    "arabic_post_prompt": "منشور عام باللغة العربية عن 'Budgeting for the Unexpected: How to prepare for sudden repair costs.'.",
+                    "arabic_image_prompt": "صورة عامة لـ 'Budgeting for the Unexpected: How to prepare for sudden repair costs.'."
+                },
+                {
+                    "name": "Navigating Egypt's Transport Regulations: Key updates fleet managers need to know for 2025.",
+                    "english_image_prompt": "Generic English image prompt for 'Navigating Egypt's Transport Regulations: Key updates fleet managers need to know for 2025.'.",
+                    "arabic_post_prompt": "منشور عام باللغة العربية عن 'Navigating Egypt's Transport Regulations: Key updates fleet managers need to know for 2025.'.",
+                    "arabic_image_prompt": "صورة عامة لـ 'Navigating Egypt's Transport Regulations: Key updates fleet managers need to know for 2025.'."
+                },
+                {
+                    "name": "ELDs in Egypt: Are your electronic logging devices fully compliant with local mandates?",
+                    "english_image_prompt": "Generic English image prompt for 'ELDs in Egypt: Are your electronic logging devices fully compliant with local mandates?'.",
+                    "arabic_post_prompt": "منشور عام باللغة العربية عن 'ELDs in Egypt: Are your electronic logging devices fully compliant with local mandates?'.",
+                    "arabic_image_prompt": "صورة عامة لـ 'ELDs in Egypt: Are your electronic logging devices fully compliant with local mandates?'."
+                },
+                {
+                    "name": "Emissions Standards in Focus: What Egypt's green initiatives mean for your fleet.",
+                    "english_image_prompt": "Generic English image prompt for 'Emissions Standards in Focus: What Egypt's green initiatives mean for your fleet.'.",
+                    "arabic_post_prompt": "منشور عام باللغة العربية عن 'Emissions Standards in Focus: What Egypt's green initiatives mean for your fleet.'.",
+                    "arabic_image_prompt": "صورة عامة لـ 'Emissions Standards in Focus: What Egypt's green initiatives mean for your fleet.'."
+                },
+                {
+                    "name": "Road Safety Compliance Checklist: Essential steps to ensure your fleet meets all safety regulations.",
+                    "english_image_prompt": "Generic English image prompt for 'Road Safety Compliance Checklist: Essential steps to ensure your fleet meets all safety regulations.'.",
+                    "arabic_post_prompt": "منشور عام باللغة العربية عن 'Road Safety Compliance Checklist: Essential steps to ensure your fleet meets all safety regulations.'.",
+                    "arabic_image_prompt": "صورة عامة لـ 'Road Safety Compliance Checklist: Essential steps to ensure your fleet meets all safety regulations.'."
+                },
+                {
+                    "name": "Vehicle Inspection Requirements: Staying on top of periodic checks to avoid penalties.",
+                    "english_image_prompt": "Generic English image prompt for 'Vehicle Inspection Requirements: Staying on top of periodic checks to avoid penalties.'.",
+                    "arabic_post_prompt": "منشور عام باللغة العربية عن 'Vehicle Inspection Requirements: Staying on top of periodic checks to avoid penalties.'.",
+                    "arabic_image_prompt": "صورة عامة لـ 'Vehicle Inspection Requirements: Staying on top of periodic checks to avoid penalties.'."
+                },
+                {
+                    "name": "Driver Licensing & Certification: Ensuring all your drivers meet Egyptian legal requirements.",
+                    "english_image_prompt": "Generic English image prompt for 'Driver Licensing & Certification: Ensuring all your drivers meet Egyptian legal requirements.'.",
+                    "arabic_post_prompt": "منشور عام باللغة العربية عن 'Driver Licensing & Certification: Ensuring all your drivers meet Egyptian legal requirements.'.",
+                    "arabic_image_prompt": "صورة عامة لـ 'Driver Licensing & Certification: Ensuring all your drivers meet Egyptian legal requirements.'."
+                },
+                {
+                    "name": "Weight & Load Regulations: Avoiding fines for overloaded vehicles on Egyptian roads.",
+                    "english_image_prompt": "Generic English image prompt for 'Weight & Load Regulations: Avoiding fines for overloaded vehicles on Egyptian roads.'.",
+                    "arabic_post_prompt": "منشور عام باللغة العربية عن 'Weight & Load Regulations: Avoiding fines for overloaded vehicles on Egyptian roads.'.",
+                    "arabic_image_prompt": "صورة عامة لـ 'Weight & Load Regulations: Avoiding fines for overloaded vehicles on Egyptian roads.'."
+                },
+                {
+                    "name": "Hazardous Materials Transport: Specific rules and training for carrying dangerous goods.",
+                    "english_image_prompt": "Generic English image prompt for 'Hazardous Materials Transport: Specific rules and training for carrying dangerous goods.'.",
+                    "arabic_post_prompt": "منشور عام باللغة العربية عن 'Hazardous Materials Transport: Specific rules and training for carrying dangerous goods.'.",
+                    "arabic_image_prompt": "صورة عامة لـ 'Hazardous Materials Transport: Specific rules and training for carrying dangerous goods.'."
+                },
+                {
+                    "name": "New Traffic Laws Impacting Fleets: A quick guide to recent legislative changes.",
+                    "english_image_prompt": "Generic English image prompt for 'New Traffic Laws Impacting Fleets: A quick guide to recent legislative changes.'.",
+                    "arabic_post_prompt": "منشور عام باللغة العربية عن 'New Traffic Laws Impacting Fleets: A quick guide to recent legislative changes.'.",
+                    "arabic_image_prompt": "صورة عامة لـ 'New Traffic Laws Impacting Fleets: A quick guide to recent legislative changes.'."
+                },
+                {
+                    "name": "Compliance Software Solutions: Simplifying paperwork and staying audit-ready.",
+                    "english_image_prompt": "Generic English image prompt for 'Compliance Software Solutions: Simplifying paperwork and staying audit-ready.'.",
+                    "arabic_post_prompt": "منشور عام باللغة العربية عن 'Compliance Software Solutions: Simplifying paperwork and staying audit-ready.'.",
+                    "arabic_image_prompt": "صورة عامة لـ 'Compliance Software Solutions: Simplifying paperwork and staying audit-ready.'."
+                },
+                {
+                    "name": "Battling Driver Shortages in Egypt: Strategies to attract and retain top talent.",
+                    "english_image_prompt": "Generic English image prompt for 'Battling Driver Shortages in Egypt: Strategies to attract and retain top talent.'.",
+                    "arabic_post_prompt": "منشور عام باللغة العربية عن 'Battling Driver Shortages in Egypt: Strategies to attract and retain top talent.'.",
+                    "arabic_image_prompt": "صورة عامة لـ 'Battling Driver Shortages in Egypt: Strategies to attract and retain top talent.'."
+                },
+                {
+                    "name": "The \"Why\" Behind Driver Turnover: Understanding and addressing common pain points for your drivers.",
+                    "english_image_prompt": "Generic English image prompt for 'The \"Why\" Behind Driver Turnover: Understanding and addressing common pain points for your drivers.'.",
+                    "arabic_post_prompt": "منشور عام باللغة العربية عن 'The \"Why\" Behind Driver Turnover: Understanding and addressing common pain points for your drivers.'.",
+                    "arabic_image_prompt": "صورة عامة لـ 'The \"Why\" Behind Driver Turnover: Understanding and addressing common pain points for your drivers.'."
+                },
+                {
+                    "name": "Incentivizing Safe Driving: Reward programs that reduce accidents and improve performance.",
+                    "english_image_prompt": "Generic English image prompt for 'Incentivizing Safe Driving: Reward programs that reduce accidents and improve performance.'.",
+                    "arabic_post_prompt": "منشور عام باللغة العربية عن 'Incentivizing Safe Driving: Reward programs that reduce accidents and improve performance.'.",
+                    "arabic_image_prompt": "صورة عامة لـ 'Incentivizing Safe Driving: Reward programs that reduce accidents and improve performance.'."
+                },
+                {
+                    "name": "Combatting Driver Fatigue: Essential tips for managing driver hours and promoting rest.",
+                    "english_image_prompt": "Generic English image prompt for 'Combatting Driver Fatigue: Essential tips for managing driver hours and promoting rest.'.",
+                    "arabic_post_prompt": "منشور عام باللغة العربية عن 'Combatting Driver Fatigue: Essential tips for managing driver hours and promoting rest.'.",
+                    "arabic_image_prompt": "صورة عامة لـ 'Combatting Driver Fatigue: Essential tips for managing driver hours and promoting rest.'."
+                },
+                {
+                    "name": "Distracted Driving is Dangerous: Reminders and solutions for keeping eyes on the road.",
+                    "english_image_prompt": "Generic English image prompt for 'Distracted Driving is Dangerous: Reminders and solutions for keeping eyes on the road.'.",
+                    "arabic_post_prompt": "منشور عام باللغة العربية عن 'Distracted Driving is Dangerous: Reminders and solutions for keeping eyes on the road.'.",
+                    "arabic_image_prompt": "صورة عامة لـ 'Distracted Driving is Dangerous: Reminders and solutions for keeping eyes on the road.'."
+                },
+                {
+                    "name": "Defensive Driving Training: Equipping your drivers for safer journeys on Egyptian highways.",
+                    "english_image_prompt": "Generic English image prompt for 'Defensive Driving Training: Equipping your drivers for safer journeys on Egyptian highways.'.",
+                    "arabic_post_prompt": "منشور عام باللغة العربية عن 'Defensive Driving Training: Equipping your drivers for safer journeys on Egyptian highways.'.",
+                    "arabic_image_prompt": "صورة عامة لـ 'Defensive Driving Training: Equipping your drivers for safer journeys on Egyptian highways.'."
+                },
+                {
+                    "name": "Driver Wellness Programs: Investing in your drivers' health for better performance.",
+                    "english_image_prompt": "Generic English image prompt for 'Driver Wellness Programs: Investing in your drivers' health for better performance.'.",
+                    "arabic_post_prompt": "منشور عام باللغة العربية عن 'Driver Wellness Programs: Investing in your drivers' health for better performance.'.",
+                    "arabic_image_prompt": "صورة عامة لـ 'Driver Wellness Programs: Investing in your drivers' health for better performance.'."
+                },
+                {
+                    "name": "Harnessing Driver Data for Improvement: Using telematics ethically to coach drivers.",
+                    "english_image_prompt": "Generic English image prompt for 'Harnessing Driver Data for Improvement: Using telematics ethically to coach drivers.'.",
+                    "arabic_post_prompt": "منشور عام باللغة العربية عن 'Harnessing Driver Data for Improvement: Using telematics ethically to coach drivers.'.",
+                    "arabic_image_prompt": "صورة عامة لـ 'Harnessing Driver Data for Improvement: Using telematics ethically to coach drivers.'."
+                },
+                {
+                    "name": "Creating a Safety-First Culture: Leadership's role in promoting fleet safety.",
+                    "english_image_prompt": "Generic English image prompt for 'Creating a Safety-First Culture: Leadership's role in promoting fleet safety.'.",
+                    "arabic_post_prompt": "منشور عام باللغة العربية عن 'Creating a Safety-First Culture: Leadership's role in promoting fleet safety.'.",
+                    "arabic_image_prompt": "صورة عامة لـ 'Creating a Safety-First Culture: Leadership's role in promoting fleet safety.'."
+                },
+                {
+                    "name": "Dealing with Road Rage: Tips for drivers to stay calm and focused in challenging traffic.",
+                    "english_image_prompt": "Generic English image prompt for 'Dealing with Road Rage: Tips for drivers to stay calm and focused in challenging traffic.'.",
+                    "arabic_post_prompt": "منشور عام باللغة العربية عن 'Dealing with Road Rage: Tips for drivers to stay calm and focused in challenging traffic.'.",
+                    "arabic_image_prompt": "صورة عامة لـ 'Dealing with Road Rage: Tips for drivers to stay calm and focused in challenging traffic.'."
+                },
+                {
+                    "name": "Real-time Tracking in Egypt: How GPS can transform your fleet operations.",
+                    "english_image_prompt": "Generic English image prompt for 'Real-time Tracking in Egypt: How GPS can transform your fleet operations.'.",
+                    "arabic_post_prompt": "منشور عام باللغة العربية عن 'Real-time Tracking in Egypt: How GPS can transform your fleet operations.'.",
+                    "arabic_image_prompt": "صورة عامة لـ 'Real-time Tracking in Egypt: How GPS can transform your fleet operations.'."
+                },
+                {
+                    "name": "Beyond GPS: What Else Can Telematics Tell You? Unlocking deeper insights.",
+                    "english_image_prompt": "Generic English image prompt for 'Beyond GPS: What Else Can Telematics Tell You? Unlocking deeper insights.'.",
+                    "arabic_post_prompt": "منشور عام باللغة العربية عن 'Beyond GPS: What Else Can Telematics Tell You? Unlocking deeper insights.'.",
+                    "arabic_image_prompt": "صورة عامة لـ 'Beyond GPS: What Else Can Telematics Tell You? Unlocking deeper insights.'."
+                },
+                {
+                    "name": "From Data to Decisions: Making sense of your fleet's vast data streams.",
+                    "english_image_prompt": "Generic English image prompt for 'From Data to Decisions: Making sense of your fleet's vast data streams.'.",
+                    "arabic_post_prompt": "منشور عام باللغة العربية عن 'From Data to Decisions: Making sense of your fleet's vast data streams.'.",
+                    "arabic_image_prompt": "صورة عامة لـ 'From Data to Decisions: Making sense of your fleet's vast data streams.'."
+                },
+                {
+                    "name": "Eliminating Manual Paperwork: The benefits of digitalizing your fleet records.",
+                    "english_image_prompt": "Generic English image prompt for 'Eliminating Manual Paperwork: The benefits of digitalizing your fleet records.'.",
+                    "arabic_post_prompt": "منشور عام باللغة العربية عن 'Eliminating Manual Paperwork: The benefits of digitalizing your fleet records.'.",
+                    "arabic_image_prompt": "صورة عامة لـ 'Eliminating Manual Paperwork: The benefits of digitalizing your fleet records.'."
+                },
+                {
+                    "name": "Dashboard Essentials: Key metrics every fleet manager should be tracking daily.",
+                    "english_image_prompt": "Generic English image prompt for 'Dashboard Essentials: Key metrics every fleet manager should be tracking daily.'.",
+                    "arabic_post_prompt": "منشور عام باللغة العربية عن 'Dashboard Essentials: Key metrics every fleet manager should be tracking daily.'.",
+                    "arabic_image_prompt": "صورة عامة لـ 'Dashboard Essentials: Key metrics every fleet manager should be tracking daily.'."
+                },
+                {
+                    "name": "Route Optimization in Egyptian Cities: Smarter routes mean faster deliveries and happier customers.",
+                    "english_image_prompt": "Generic English image prompt for 'Route Optimization in Egyptian Cities: Smarter routes mean faster deliveries and happier customers.'.",
+                    "arabic_post_prompt": "منشور عام باللغة العربية عن 'Route Optimization in Egyptian Cities: Smarter routes mean faster deliveries and happier customers.'.",
+                    "arabic_image_prompt": "صورة عامة لـ 'Route Optimization in Egyptian Cities: Smarter routes mean faster deliveries and happier customers.'."
+                },
+                {
+                    "name": "The Power of Predictive Analytics: Foreseeing maintenance needs before they happen.",
+                    "english_image_prompt": "Generic English image prompt for 'The Power of Predictive Analytics: Foreseeing maintenance needs before they happen.'.",
+                    "arabic_post_prompt": "منشور عام باللغة العربية عن 'The Power of Predictive Analytics: Foreseeing maintenance needs before they happen.'.",
+                    "arabic_image_prompt": "صورة عامة لـ 'The Power of Predictive Analytics: Foreseeing maintenance needs before they happen.'."
+                },
+                {
+                    "name": "Integrating Your Fleet Systems: Breaking down data silos for a holistic view.",
+                    "english_image_prompt": "Generic English image prompt for 'Integrating Your Fleet Systems: Breaking down data silos for a holistic view.'.",
+                    "arabic_post_prompt": "منشور عام باللغة العربية عن 'Integrating Your Fleet Systems: Breaking down data silos for a holistic view.'.",
+                    "arabic_image_prompt": "صورة عامة لـ 'Integrating Your Fleet Systems: Breaking down data silos for a holistic view.'."
+                },
+                {
+                    "name": "Customizable Reports for Fleet Performance: Getting the data you need.",
+                    "english_image_prompt": "Generic English image prompt for 'Customizable Reports for Fleet Performance: Getting the data you need.'.",
+                    "arabic_post_prompt": "منشور عام باللغة العربية عن 'Customizable Reports for Fleet Performance: Getting the data you need.'.",
+                    "arabic_image_prompt": "صورة عامة لـ 'Customizable Reports for Fleet Performance: Getting the data you need.'."
+                },
+                {
+                    "name": "Are You Drowning in Spreadsheets? Time to upgrade your data management!",
+                    "english_image_prompt": "Generic English image prompt for 'Are You Drowning in Spreadsheets? Time to upgrade your data management!'.",
+                    "arabic_post_prompt": "منشور عام باللغة العربية عن 'Are You Drowning in Spreadsheets? Time to upgrade your data management!'.",
+                    "arabic_image_prompt": "صورة عامة لـ 'Are You Drowning in Spreadsheets? Time to upgrade your data management!'."
+                },
+                {
+                    "name": "Navigating Global Supply Chain Headwinds: How Egyptian fleets are coping with delays.",
+                    "english_image_prompt": "Generic English image prompt for 'Navigating Global Supply Chain Headwinds: How Egyptian fleets are coping with delays.'.",
+                    "arabic_post_prompt": "منشور عام باللغة العربية عن 'Navigating Global Supply Chain Headwinds: How Egyptian fleets are coping with delays.'.",
+                    "arabic_image_prompt": "صورة عامة لـ 'Navigating Global Supply Chain Headwinds: How Egyptian fleets are coping with delays.'."
+                },
+                {
+                    "name": "Localizing Your Supply Chain: Reducing reliance on international parts.",
+                    "english_image_prompt": "Generic English image prompt for 'Localizing Your Supply Chain: Reducing reliance on international parts.'.",
+                    "arabic_post_prompt": "منشور عام باللغة العربية عن 'Localizing Your Supply Chain: Reducing reliance on international parts.'.",
+                    "arabic_image_prompt": "صورة عامة لـ 'Localizing Your Supply Chain: Reducing reliance on international parts.'."
+                },
+                {
+                    "name": "Strategizing for Parts Shortages: Building resilience in your maintenance operations.",
+                    "english_image_prompt": "Generic English image prompt for 'Strategizing for Parts Shortages: Building resilience in your maintenance operations.'.",
+                    "arabic_post_prompt": "منشور عام باللغة العربية عن 'Strategizing for Parts Shortages: Building resilience in your maintenance operations.'.",
+                    "arabic_image_prompt": "صورة عامة لـ 'Strategizing for Parts Shortages: Building resilience in your maintenance operations.'."
+                },
+                {
+                    "name": "The Impact of Suez Canal on Logistics: Adapting to regional and global disruptions.",
+                    "english_image_prompt": "Generic English image prompt for 'The Impact of Suez Canal on Logistics: Adapting to regional and global disruptions.'.",
+                    "arabic_post_prompt": "منشور عام باللغة العربية عن 'The Impact of Suez Canal on Logistics: Adapting to regional and global disruptions.'.",
+                    "arabic_image_prompt": "صورة عامة لـ 'The Impact of Suez Canal on Logistics: Adapting to regional and global disruptions.'."
+                },
+                {
+                    "name": "Vehicle Downtime: The Hidden Cost of Delays: How to minimize its impact.",
+                    "english_image_prompt": "Generic English image prompt for 'Vehicle Downtime: The Hidden Cost of Delays: How to minimize its impact.'.",
+                    "arabic_post_prompt": "منشور عام باللغة العربية عن 'Vehicle Downtime: The Hidden Cost of Delays: How to minimize its impact.'.",
+                    "arabic_image_prompt": "صورة عامة لـ 'Vehicle Downtime: The Hidden Cost of Delays: How to minimize its impact.'."
+                },
+                {
+                    "name": "Forecasting Vehicle Replacement: Planning ahead in an unpredictable market.",
+                    "english_image_prompt": "Generic English image prompt for 'Forecasting Vehicle Replacement: Planning ahead in an unpredictable market.'.",
+                    "arabic_post_prompt": "منشور عام باللغة العربية عن 'Forecasting Vehicle Replacement: Planning ahead in an unpredictable market.'.",
+                    "arabic_image_prompt": "صورة عامة لـ 'Forecasting Vehicle Replacement: Planning ahead in an unpredictable market.'."
+                },
+                {
+                    "name": "Building Relationships with Suppliers: Ensuring priority access to critical parts.",
+                    "english_image_prompt": "Generic English image prompt for 'Building Relationships with Suppliers: Ensuring priority access to critical parts.'.",
+                    "arabic_post_prompt": "منشور عام باللغة العربية عن 'Building Relationships with Suppliers: Ensuring priority access to critical parts.'.",
+                    "arabic_image_prompt": "صورة عامة لـ 'Building Relationships with Suppliers: Ensuring priority access to critical parts.'."
+                },
+                {
+                    "name": "Inventory Management for Fleet Parts: Optimizing your stock to avoid delays.",
+                    "english_image_prompt": "Generic English image prompt for 'Inventory Management for Fleet Parts: Optimizing your stock to avoid delays.'.",
+                    "arabic_post_prompt": "منشور عام باللغة العربية عن 'Inventory Management for Fleet Parts: Optimizing your stock to avoid delays.'.",
+                    "arabic_image_prompt": "صورة عامة لـ 'Inventory Management for Fleet Parts: Optimizing your stock to avoid delays.'."
+                },
+                {
+                    "name": "Used vs. New Vehicles: Making smart acquisition decisions in challenging times.",
+                    "english_image_prompt": "Generic English image prompt for 'Used vs. New Vehicles: Making smart acquisition decisions in challenging times.'.",
+                    "arabic_post_prompt": "منشور عام باللغة العربية عن 'Used vs. New Vehicles: Making smart acquisition decisions in challenging times.'.",
+                    "arabic_image_prompt": "صورة عامة لـ 'Used vs. New Vehicles: Making smart acquisition decisions in challenging times.'."
+                },
+                {
+                    "name": "Contingency Planning for Unforeseen Delays: Being prepared for anything.",
+                    "english_image_prompt": "Generic English image prompt for 'Contingency Planning for Unforeseen Delays: Being prepared for anything.'.",
+                    "arabic_post_prompt": "منشور عام باللغة العربية عن 'Contingency Planning for Unforeseen Delays: Being prepared for anything.'.",
+                    "arabic_image_prompt": "صورة عامة لـ 'Contingency Planning for Unforeseen Delays: Being prepared for anything.'."
+                },
+                {
+                    "name": "Choosing the Right Fleet Management Software for Egypt: What to look for.",
+                    "english_image_prompt": "Generic English image prompt for 'Choosing the Right Fleet Management Software for Egypt: What to look for.'.",
+                    "arabic_post_prompt": "منشور عام باللغة العربية عن 'Choosing the Right Fleet Management Software for Egypt: What to look for.'.",
+                    "arabic_image_prompt": "صورة عامة لـ 'Choosing the Right Fleet Management Software for Egypt: What to look for.'."
+                },
+                {
+                    "name": "Seamless Integration: Fact or Fiction? Tips for a smooth tech rollout.",
+                    "english_image_prompt": "Generic English image prompt for 'Seamless Integration: Fact or Fiction? Tips for a smooth tech rollout.'.",
+                    "arabic_post_prompt": "منشور عام باللغة العربية عن 'Seamless Integration: Fact or Fiction? Tips for a smooth tech rollout.'.",
+                    "arabic_image_prompt": "صورة عامة لـ 'Seamless Integration: Fact or Fiction? Tips for a smooth tech rollout.'."
+                },
+                {
+                    "name": "Overcoming Resistance to New Technology: Strategies for engaging your team.",
+                    "english_image_prompt": "Generic English image prompt for 'Overcoming Resistance to New Technology: Strategies for engaging your team.'.",
+                    "arabic_post_prompt": "منشور عام باللغة العربية عن 'Overcoming Resistance to New Technology: Strategies for engaging your team.'.",
+                    "arabic_image_prompt": "صورة عامة لـ 'Overcoming Resistance to New Technology: Strategies for engaging your team.'."
+                },
+                {
+                    "name": "The ROI of Fleet Technology: Proving the value of your digital investments.",
+                    "english_image_prompt": "Generic English image prompt for 'The ROI of Fleet Technology: Proving the value of your digital investments.'.",
+                    "arabic_post_prompt": "منشور عام باللغة العربية عن 'The ROI of Fleet Technology: Proving the value of your digital investments.'.",
+                    "arabic_image_prompt": "صورة عامة لـ 'The ROI of Fleet Technology: Proving the value of your digital investments.'."
+                },
+                {
+                    "name": "Cybersecurity for Your Connected Fleet: Protecting your data and assets.",
+                    "english_image_prompt": "Generic English image prompt for 'Cybersecurity for Your Connected Fleet: Protecting your data and assets.'.",
+                    "arabic_post_prompt": "منشور عام باللغة العربية عن 'Cybersecurity for Your Connected Fleet: Protecting your data and assets.'.",
+                    "arabic_image_prompt": "صورة عامة لـ 'Cybersecurity for Your Connected Fleet: Protecting your data and assets.'."
+                },
+                {
+                    "name": "Training Your Team on New Systems: Empowering users for successful adoption.",
+                    "english_image_prompt": "Generic English image prompt for 'Training Your Team on New Systems: Empowering users for successful adoption.'.",
+                    "arabic_post_prompt": "منشور عام باللغة العربية عن 'Training Your Team on New Systems: Empowering users for successful adoption.'.",
+                    "arabic_image_prompt": "صورة عامة لـ 'Training Your Team on New Systems: Empowering users for successful adoption.'."
+                },
+                {
+                    "name": "Is Your Fleet Future-Proof? Embracing innovation without disruption.",
+                    "english_image_prompt": "Generic English image prompt for 'Is Your Fleet Future-Proof? Embracing innovation without disruption.'.",
+                    "arabic_post_prompt": "منشور عام باللغة العربية عن 'Is Your Fleet Future-Proof? Embracing innovation without disruption.'.",
+                    "arabic_image_prompt": "صورة عامة لـ 'Is Your Fleet Future-Proof? Embracing innovation without disruption.'."
+                },
+                {
+                    "name": "Pilot Programs for New Tech: Testing before full-scale implementation.",
+                    "english_image_prompt": "Generic English image prompt for 'Pilot Programs for New Tech: Testing before full-scale implementation.'.",
+                    "arabic_post_prompt": "منشور عام باللغة العربية عن 'Pilot Programs for New Tech: Testing before full-scale implementation.'.",
+                    "arabic_image_prompt": "صورة عامة لـ 'Pilot Programs for New Tech: Testing before full-scale implementation.'."
+                },
+                {
+                    "name": "Vendor Support Matters: What to expect from your technology partners.",
+                    "english_image_prompt": "Generic English image prompt for 'Vendor Support Matters: What to expect from your technology partners.'.",
+                    "arabic_post_prompt": "منشور عام باللغة العربية عن 'Vendor Support Matters: What to expect from your technology partners.'.",
+                    "arabic_image_prompt": "صورة عامة لـ 'Vendor Support Matters: What to expect from your technology partners.'."
+                },
+                {
+                    "name": "Mobile Apps for Fleet Managers: Managing on the go!",
+                    "english_image_prompt": "Generic English image prompt for 'Mobile Apps for Fleet Managers: Managing on the go!'.",
+                    "arabic_post_prompt": "منشور عام باللغة العربية عن 'Mobile Apps for Fleet Managers: Managing on the go!'.",
+                    "arabic_image_prompt": "صورة عامة لـ 'Mobile Apps for Fleet Managers: Managing on the go!'."
+                },
+                {
+                    "name": "Extending Vehicle Lifespans in Egypt: Maximizing your fleet assets.",
+                    "english_image_prompt": "Generic English image prompt for 'Extending Vehicle Lifespans in Egypt: Maximizing your fleet assets.'.",
+                    "arabic_post_prompt": "منشور عام باللغة العربية عن 'Extending Vehicle Lifespans in Egypt: Maximizing your fleet assets.'.",
+                    "arabic_image_prompt": "صورة عامة لـ 'Extending Vehicle Lifespans in Egypt: Maximizing your fleet assets.'."
+                },
+                {
+                    "name": "Boosting Resale Value: Maintenance strategies that pay off.",
+                    "english_image_prompt": "Generic English image prompt for 'Boosting Resale Value: Maintenance strategies that pay off.'.",
+                    "arabic_post_prompt": "منشور عام باللغة العربية عن 'Boosting Resale Value: Maintenance strategies that pay off.'.",
+                    "arabic_image_prompt": "صورة عامة لـ 'Boosting Resale Value: Maintenance strategies that pay off.'."
+                },
+                {
+                    "name": "The EV Transition in Egypt: Opportunities and challenges for your fleet.",
+                    "english_image_prompt": "Generic English image prompt for 'The EV Transition in Egypt: Opportunities and challenges for your fleet.'.",
+                    "arabic_post_prompt": "منشور عام باللغة العربية عن 'The EV Transition in Egypt: Opportunities and challenges for your fleet.'.",
+                    "arabic_image_prompt": "صورة عامة لـ 'The EV Transition in Egypt: Opportunities and challenges for your fleet.'."
+                },
+                {
+                    "name": "Charging Infrastructure for EVs in Egypt: What's available and what's needed?",
+                    "english_image_prompt": "Generic English image prompt for 'Charging Infrastructure for EVs in Egypt: What's available and what's needed?'.",
+                    "arabic_post_prompt": "منشور عام باللغة العربية عن 'Charging Infrastructure for EVs in Egypt: What's available and what's needed?'.",
+                    "arabic_image_prompt": "صورة عامة لـ 'Charging Infrastructure for EVs in Egypt: What's available and what's needed?'."
+                },
+                {
+                    "name": "Alternative Fuels Beyond Diesel: Exploring options for a greener fleet.",
+                    "english_image_prompt": "Generic English image prompt for 'Alternative Fuels Beyond Diesel: Exploring options for a greener fleet.'.",
+                    "arabic_post_prompt": "منشور عام باللغة العربية عن 'Alternative Fuels Beyond Diesel: Exploring options for a greener fleet.'.",
+                    "arabic_image_prompt": "صورة عامة لـ 'Alternative Fuels Beyond Diesel: Exploring options for a greener fleet.'."
+                },
+                {
+                    "name": "Optimizing Your Fleet Mix: Right-sizing for efficiency and cost-effectiveness.",
+                    "english_image_prompt": "Generic English image prompt for 'Optimizing Your Fleet Mix: Right-sizing for efficiency and cost-effectiveness.'.",
+                    "arabic_post_prompt": "منشور عام باللغة العربية عن 'Optimizing Your Fleet Mix: Right-sizing for efficiency and cost-effectiveness.'.",
+                    "arabic_image_prompt": "صورة عامة لـ 'Optimizing Your Fleet Mix: Right-sizing for efficiency and cost-effectiveness.'."
+                },
+                {
+                    "name": "Leasing vs. Buying: Which is Right for Your Fleet? A financial breakdown.",
+                    "english_image_prompt": "Generic English image prompt for 'Leasing vs. Buying: Which is Right for Your Fleet? A financial breakdown.'.",
+                    "arabic_post_prompt": "منشور عام باللغة العربية عن 'Leasing vs. Buying: Which is Right for Your Fleet? A financial breakdown.'.",
+                    "arabic_image_prompt": "صورة عامة لـ 'Leasing vs. Buying: Which is Right for Your Fleet? A financial breakdown.'."
+                },
+                {
+                    "name": "End-of-Life Vehicle Disposal: Responsible and profitable ways to retire assets.",
+                    "english_image_prompt": "Generic English image prompt for 'End-of-Life Vehicle Disposal: Responsible and profitable ways to retire assets.'.",
+                    "arabic_post_prompt": "منشور عام باللغة العربية عن 'End-of-Life Vehicle Disposal: Responsible and profitable ways to retire assets.'.",
+                    "arabic_image_prompt": "صورة عامة لـ 'End-of-Life Vehicle Disposal: Responsible and profitable ways to retire assets.'."
+                },
+                {
+                    "name": "Specialized Vehicle Needs: Customizing your fleet for specific operations.",
+                    "english_image_prompt": "Generic English image prompt for 'Specialized Vehicle Needs: Customizing your fleet for specific operations.'.",
+                    "arabic_post_prompt": "منشور عام باللغة العربية عن 'Specialized Vehicle Needs: Customizing your fleet for specific operations.'.",
+                    "arabic_image_prompt": "صورة عامة لـ 'Specialized Vehicle Needs: Customizing your fleet for specific operations.'."
+                },
+                {
+                    "name": "The Evolution of Fleet Vehicles: Staying updated on automotive advancements.",
+                    "english_image_prompt": "Generic English image prompt for 'The Evolution of Fleet Vehicles: Staying updated on automotive advancements.'.",
+                    "arabic_post_prompt": "منشور عام باللغة العربية عن 'The Evolution of Fleet Vehicles: Staying updated on automotive advancements.'.",
+                    "arabic_image_prompt": "صورة عامة لـ 'The Evolution of Fleet Vehicles: Staying updated on automotive advancements.'."
+                },
+                {
+                    "name": "Tackling Rising Fleet Insurance Costs in Egypt: Strategies for lower premiums.",
+                    "english_image_prompt": "Generic English image prompt for 'Tackling Rising Fleet Insurance Costs in Egypt: Strategies for lower premiums.'.",
+                    "arabic_post_prompt": "منشور عام باللغة العربية عن 'Tackling Rising Fleet Insurance Costs in Egypt: Strategies for lower premiums.'.",
+                    "arabic_image_prompt": "صورة عامة لـ 'Tackling Rising Fleet Insurance Costs in Egypt: Strategies for lower premiums.'."
+                },
+                {
+                    "name": "How Telematics Lowers Your Insurance: Data-driven discounts!",
+                    "english_image_prompt": "Generic English image prompt for 'How Telematics Lowers Your Insurance: Data-driven discounts!'.",
+                    "arabic_post_prompt": "منشور عام باللغة العربية عن 'How Telematics Lowers Your Insurance: Data-driven discounts!'.",
+                    "arabic_image_prompt": "صورة عامة لـ 'How Telematics Lowers Your Insurance: Data-driven discounts!'."
+                },
+                {
+                    "name": "Accident Reporting Best Practices: Streamlining the process for quicker claims.",
+                    "english_image_prompt": "Generic English image prompt for 'Accident Reporting Best Practices: Streamlining the process for quicker claims.'.",
+                    "arabic_post_prompt": "منشور عام باللغة العربية عن 'Accident Reporting Best Practices: Streamlining the process for quicker claims.'.",
+                    "arabic_image_prompt": "صورة عامة لـ 'Accident Reporting Best Practices: Streamlining the process for quicker claims.'."
+                },
+                {
+                    "name": "Reducing Accident Frequency: Proactive steps for a safer fleet.",
+                    "english_image_prompt": "Generic English image prompt for 'Reducing Accident Frequency: Proactive steps for a safer fleet.'.",
+                    "arabic_post_prompt": "منشور عام باللغة العربية عن 'Reducing Accident Frequency: Proactive steps for a safer fleet.'.",
+                    "arabic_image_prompt": "صورة عامة لـ 'Reducing Accident Frequency: Proactive steps for a safer fleet.'."
+                },
+                {
+                    "name": "Fleet Security: Protecting Against Theft & Vandalism.",
+                    "english_image_prompt": "Generic English image prompt for 'Fleet Security: Protecting Against Theft & Vandalism.'.",
+                    "arabic_post_prompt": "منشور عام باللغة العربية عن 'Fleet Security: Protecting Against Theft & Vandalism.'.",
+                    "arabic_image_prompt": "صورة عامة لـ 'Fleet Security: Protecting Against Theft & Vandalism.'."
+                },
+                {
+                    "name": "The Impact of Driver Behavior on Insurance: Coaching for better rates.",
+                    "english_image_prompt": "Generic English image prompt for 'The Impact of Driver Behavior on Insurance: Coaching for better rates.'.",
+                    "arabic_post_prompt": "منشور عام باللغة العربية عن 'The Impact of Driver Behavior on Insurance: Coaching for better rates.'.",
+                    "arabic_image_prompt": "صورة عامة لـ 'The Impact of Driver Behavior on Insurance: Coaching for better rates.'."
+                },
+                {
+                    "name": "Comprehensive Risk Assessments for Your Fleet: Identifying vulnerabilities.",
+                    "english_image_prompt": "Generic English image prompt for 'Comprehensive Risk Assessments for Your Fleet: Identifying vulnerabilities.'.",
+                    "arabic_post_prompt": "منشور عام باللغة العربية عن 'Comprehensive Risk Assessments for Your Fleet: Identifying vulnerabilities.'.",
+                    "arabic_image_prompt": "صورة عامة لـ 'Comprehensive Risk Assessments for Your Fleet: Identifying vulnerabilities.'."
+                },
+                {
+                    "name": "Emergency Response Planning for Fleets: Being ready for anything.",
+                    "english_image_prompt": "Generic English image prompt for 'Emergency Response Planning for Fleets: Being ready for anything.'.",
+                    "arabic_post_prompt": "منشور عام باللغة العربية عن 'Emergency Response Planning for Fleets: Being ready for anything.'.",
+                    "arabic_image_prompt": "صورة عامة لـ 'Emergency Response Planning for Fleets: Being ready for anything.'."
+                },
+                {
+                    "name": "Reputation Management After Incidents: Protecting your brand.",
+                    "english_image_prompt": "Generic English image prompt for 'Reputation Management After Incidents: Protecting your brand.'.",
+                    "arabic_post_prompt": "منشور عام باللغة العربية عن 'Reputation Management After Incidents: Protecting your brand.'.",
+                    "arabic_image_prompt": "صورة عامة لـ 'Reputation Management After Incidents: Protecting your brand.'."
+                },
+                {
+                    "name": "Working with Your Insurance Broker: Maximizing your coverage and understanding terms.",
+                    "english_image_prompt": "Generic English image prompt for 'Working with Your Insurance Broker: Maximizing your coverage and understanding terms.'.",
+                    "arabic_post_prompt": "منشور عام باللغة العربية عن 'Working with Your Insurance Broker: Maximizing your coverage and understanding terms.'.",
+                    "arabic_image_prompt": "صورة عامة لـ 'Working with Your Insurance Broker: Maximizing your coverage and understanding terms.'."
+                },
+                {
+                    "name": "Meeting Customer Expectations in Last-Mile Delivery: Speed and transparency are key.",
+                    "english_image_prompt": "Generic English image prompt for 'Meeting Customer Expectations in Last-Mile Delivery: Speed and transparency are key.'.",
+                    "arabic_post_prompt": "منشور عام باللغة العربية عن 'Meeting Customer Expectations in Last-Mile Delivery: Speed and transparency are key.'.",
+                    "arabic_image_prompt": "صورة عامة لـ 'Meeting Customer Expectations in Last-Mile Delivery: Speed and transparency are key.'."
+                },
+                {
+                    "name": "Real-time Delivery Updates: The New Standard. Are you keeping your customers informed?",
+                    "english_image_prompt": "Generic English image prompt for 'Real-time Delivery Updates: The New Standard. Are you keeping your customers informed?'.",
+                    "arabic_post_prompt": "منشور عام باللغة العربية عن 'Real-time Delivery Updates: The New Standard. Are you keeping your customers informed?'.",
+                    "arabic_image_prompt": "صورة عامة لـ 'Real-time Delivery Updates: The New Standard. Are you keeping your customers informed?'."
+                },
+                {
+                    "name": "Solving Last-Mile Challenges in Cairo's Congestion.",
+                    "english_image_prompt": "Generic English image prompt for 'Solving Last-Mile Challenges in Cairo's Congestion.'.",
+                    "arabic_post_prompt": "منشور عام باللغة العربية عن 'Solving Last-Mile Challenges in Cairo's Congestion.'.",
+                    "arabic_image_prompt": "صورة عامة لـ 'Solving Last-Mile Challenges in Cairo's Congestion.'."
+                },
+                {
+                    "name": "Enhancing Customer Satisfaction with Timely Deliveries.",
+                    "english_image_prompt": "Generic English image prompt for 'Enhancing Customer Satisfaction with Timely Deliveries.'.",
+                    "arabic_post_prompt": "منشور عام باللغة العربية عن 'Enhancing Customer Satisfaction with Timely Deliveries.'.",
+                    "arabic_image_prompt": "صورة عامة لـ 'Enhancing Customer Satisfaction with Timely Deliveries.'."
+                },
+                {
+                    "name": "Sustainable Delivery: Meeting Green Demands.",
+                    "english_image_prompt": "Generic English image prompt for 'Sustainable Delivery: Meeting Green Demands.'.",
+                    "arabic_post_prompt": "منشور عام باللغة العربية عن 'Sustainable Delivery: Meeting Green Demands.'.",
+                    "arabic_image_prompt": "صورة عامة لـ 'Sustainable Delivery: Meeting Green Demands.'."
+                },
+                {
+                    "name": "Proof of Delivery (POD) Solutions: Ensuring accuracy and accountability.",
+                    "english_image_prompt": "Generic English image prompt for 'Proof of Delivery (POD) Solutions: Ensuring accuracy and accountability.'.",
+                    "arabic_post_prompt": "منشور عام باللغة العربية عن 'Proof of Delivery (POD) Solutions: Ensuring accuracy and accountability.'.",
+                    "arabic_image_prompt": "صورة عامة لـ 'Proof of Delivery (POD) Solutions: Ensuring accuracy and accountability.'."
+                },
+                {
+                    "name": "The Power of Positive Customer Feedback: Building loyalty through excellent service.",
+                    "english_image_prompt": "Generic English image prompt for 'The Power of Positive Customer Feedback: Building loyalty through excellent service.'.",
+                    "arabic_post_prompt": "منشور عام باللغة العربية عن 'The Power of Positive Customer Feedback: Building loyalty through excellent service.'.",
+                    "arabic_image_prompt": "صورة عامة لـ 'The Power of Positive Customer Feedback: Building loyalty through excellent service.'."
+                },
+                {
+                    "name": "Route Planning for Customer Satisfaction: Not just efficiency, but delight!",
+                    "english_image_prompt": "Generic English image prompt for 'Route Planning for Customer Satisfaction: Not just efficiency, but delight!'.",
+                    "arabic_post_prompt": "منشور عام باللغة العربية عن 'Route Planning for Customer Satisfaction: Not just efficiency, but delight!'.",
+                    "arabic_image_prompt": "صورة عامة لـ 'Route Planning for Customer Satisfaction: Not just efficiency, but delight!'."
+                },
+                {
+                    "name": "Dealing with Delivery Delays: Proactive communication and solutions.",
+                    "english_image_prompt": "Generic English image prompt for 'Dealing with Delivery Delays: Proactive communication and solutions.'.",
+                    "arabic_post_prompt": "منشور عام باللغة العربية عن 'Dealing with Delivery Delays: Proactive communication and solutions.'.",
+                    "arabic_image_prompt": "صورة عامة لـ 'Dealing with Delivery Delays: Proactive communication and solutions.'."
+                },
+                {
+                    "name": "Building a Strong Brand Image Through Reliable Service.",
+                    "english_image_prompt": "Generic English image prompt for 'Building a Strong Brand Image Through Reliable Service.'.",
+                    "arabic_post_prompt": "منشور عام باللغة العربية عن 'Building a Strong Brand Image Through Reliable Service.'.",
+                    "arabic_image_prompt": "صورة عامة لـ 'Building a Strong Brand Image Through Reliable Service.'."
+                },
+                {
+                    "name": "The Shortage of Skilled Fleet Technicians: How to find and retain the best.",
+                    "english_image_prompt": "Generic English image prompt for 'The Shortage of Skilled Fleet Technicians: How to find and retain the best.'.",
+                    "arabic_post_prompt": "منشور عام باللغة العربية عن 'The Shortage of Skilled Fleet Technicians: How to find and retain the best.'.",
+                    "arabic_image_prompt": "صورة عامة لـ 'The Shortage of Skilled Fleet Technicians: How to find and retain the best.'."
+                },
+                {
+                    "name": "Investing in Technical Training: Upskilling your maintenance team.",
+                    "english_image_prompt": "Generic English image prompt for 'Investing in Technical Training: Upskilling your maintenance team.'.",
+                    "arabic_post_prompt": "منشور عام باللغة العربية عن 'Investing in Technical Training: Upskilling your maintenance team.'.",
+                    "arabic_image_prompt": "صورة عامة لـ 'Investing in Technical Training: Upskilling your maintenance team.'."
+                },
+                {
+                    "name": "Attracting the Next Generation of Fleet Professionals.",
+                    "english_image_prompt": "Generic English image prompt for 'Attracting the Next Generation of Fleet Professionals.'.",
+                    "arabic_post_prompt": "منشور عام باللغة العربية عن 'Attracting the Next Generation of Fleet Professionals.'.",
+                    "arabic_image_prompt": "صورة عامة لـ 'Attracting the Next Generation of Fleet Professionals.'."
+                },
+                {
+                    "name": "Succession Planning for Fleet Management Roles: Nurturing future leaders.",
+                    "english_image_prompt": "Generic English image prompt for 'Succession Planning for Fleet Management Roles: Nurturing future leaders.'.",
+                    "arabic_post_prompt": "منشور عام باللغة العربية عن 'Succession Planning for Fleet Management Roles: Nurturing future leaders.'.",
+                    "arabic_image_prompt": "صورة عامة لـ 'Succession Planning for Fleet Management Roles: Nurturing future leaders.'."
+                },
+                {
+                    "name": "Competitive Benefits for Fleet Staff: Going beyond salary to attract talent.",
+                    "english_image_prompt": "Generic English image prompt for 'Competitive Benefits for Fleet Staff: Going beyond salary to attract talent.'.",
+                    "arabic_post_prompt": "منشور عام باللغة العربية عن 'Competitive Benefits for Fleet Staff: Going beyond salary to attract talent.'.",
+                    "arabic_image_prompt": "صورة عامة لـ 'Competitive Benefits for Fleet Staff: Going beyond salary to attract talent.'."
+                },
+                {
+                    "name": "Creating a Positive Work Environment for Technicians: Retention strategies.",
+                    "english_image_prompt": "Generic English image prompt for 'Creating a Positive Work Environment for Technicians: Retention strategies.'.",
+                    "arabic_post_prompt": "منشور عام باللغة العربية عن 'Creating a Positive Work Environment for Technicians: Retention strategies.'.",
+                    "arabic_image_prompt": "صورة عامة لـ 'Creating a Positive Work Environment for Technicians: Retention strategies.'."
+                },
+                {
+                    "name": "Apprenticeship Programs in Fleet Maintenance: Growing your own talent.",
+                    "english_image_prompt": "Generic English image prompt for 'Apprenticeship Programs in Fleet Maintenance: Growing your own talent.'.",
+                    "arabic_post_prompt": "منشور عام باللغة العربية عن 'Apprenticeship Programs in Fleet Maintenance: Growing your own talent.'.",
+                    "arabic_image_prompt": "صورة عامة لـ 'Apprenticeship Programs in Fleet Maintenance: Growing your own talent.'."
+                },
+                {
+                    "name": "The Importance of Mentorship in Fleet Operations.",
+                    "english_image_prompt": "Generic English image prompt for 'The Importance of Mentorship in Fleet Operations.'.",
+                    "arabic_post_prompt": "منشور عام باللغة العربية عن 'The Importance of Mentorship in Fleet Operations.'.",
+                    "arabic_image_prompt": "صورة عامة لـ 'The Importance of Mentorship in Fleet Operations.'."
+                },
+                {
+                    "name": "Bridging the Skills Gap in a Rapidly Evolving Industry.",
+                    "english_image_prompt": "Generic English image prompt for 'Bridging the Skills Gap in a Rapidly Evolving Industry.'.",
+                    "arabic_post_prompt": "منشور عام باللغة العربية عن 'Bridging the Skills Gap in a Rapidly Evolving Industry.'.",
+                    "arabic_image_prompt": "صورة عامة لـ 'Bridging the Skills Gap in a Rapidly Evolving Industry.'."
+                },
+                {
+                    "name": "From Driver to Fleet Manager: Career Paths in Logistics.",
+                    "english_image_prompt": "Generic English image prompt for 'From Driver to Fleet Manager: Career Paths in Logistics.'.",
+                    "arabic_post_prompt": "منشور عام باللغة العربية عن 'From Driver to Fleet Manager: Career Paths in Logistics.'.",
+                    "arabic_image_prompt": "صورة عامة لـ 'From Driver to Fleet Manager: Career Paths in Logistics.'."
+                }
+            ]
+        },
+        {
+            "page_name": "SYM Spare PArts Egypt",
+            "english_contact_info": "Website: https://www.getradingeg.com\nTax ID: 470-012-110\nAddress: 5A Mobarak Street off Asmaa Fahmy Ard El Golf , Heliopolis , Cairo , Egypt.\nPostal Code : 11586\nLocation: https://maps.app.goo.gl/XhA2E7S1HvjJSM4q8",
+            "arabic_contact_info": "الموقع الاكترونى: https://www.getradingeg.com/ar\nتسجيل ضريبى: 470-012-110\nالعنوان: 5أ ش مبارك من اسماء فهمى خلف الرقابه الادارية ارض الجولف مصر الجديدة القاهرة\nاللوكيشن: https://maps.app.goo.gl/XhA2E7S1HvjJSM4q8",
+            "topics": []
+        }
+    ]
+}

@@ -1,0 +1,191 @@
+{% extends "base.html" %}
+
+{% block title %}ML Dashboard{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2 class="mb-4">📊 Machine Learning Insights</h2>
+
+    <section class="ml-controls">
+        <form action="{{ url_for('ml_routes.ml_dashboard_page') }}" method="POST">
+            <button type="submit">Run All Insights Analyses</button>
+        </form>
+        <p class="mt-2 text-muted">Analysis runs on historical posted data. Ensure you've fetched metrics for posted content in "Posting & Tracking" tab for up-to-date insights.</p>
+    </section>
+
+    {# Flash messages display handled in base.html #}
+
+    {% if insights %}
+        {% if insights.topic %}
+            <section class="topic-insights mb-4">
+                <h4>🔥 Topic Performance: {{ insights.topic.message }}</h4>
+                {% if insights.topic.high %}
+                    <h6>High-Performing Topics (Avg Engagement Score):</h6>
+                    <ul class="list-group">
+                        {% for topic, score in insights.topic.high %}
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                {{ topic }}
+                                <span class="badge bg-success rounded-pill">{{ '%.2f' | format(score) }}</span>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+                {% if insights.topic.low %}
+                    <h6 class="mt-3">Low-Performing Topics (Avg Engagement Score):</h6>
+                    <ul class="list-group">
+                        {% for topic, score in insights.topic.low %}
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                {{ topic }}
+                                <span class="badge bg-danger rounded-pill">{{ '%.2f' | format(score) }}</span>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            </section>
+        {% endif %}
+
+        {% if insights.language %}
+            <section class="language-insights mb-4">
+                <h4>🗣️ Language Preference: {{ insights.language.message }}</h4>
+                {% if insights.language.high %}
+                    <h6>Top Performing Languages (Avg Engagement Score):</h6>
+                    <ul class="list-group">
+                        {% for lang, score in insights.language.high %}
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                {{ lang }}
+                                <span class="badge bg-info rounded-pill">{{ '%.2f' | format(score) }}</span>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            </section>
+        {% endif %}
+
+        {% if insights.text_prompt %}
+            <section class="text-prompt-insights mb-4">
+                <h4>✍️ Text Prompt Performance: {{ insights.text_prompt.message }}</h4>
+                {% if insights.text_prompt.high %}
+                    <h6>High-Performing Prompt Phrases:</h6>
+                    <ul class="list-group">
+                        {% for phrase, score in insights.text_prompt.high %}
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                {{ phrase }}
+                                <span class="badge bg-success rounded-pill">{{ '%.4f' | format(score) }}</span>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+                {% if insights.text_prompt.low %}
+                    <h6 class="mt-3">Low-Performing Prompt Phrases:</h6>
+                    <ul class="list-group">
+                        {% for phrase, score in insights.text_prompt.low %}
+                            <li class="list-group-item d-flex justify-content="between align-items-center">
+                                {{ phrase }}
+                                <span class="badge bg-danger rounded-pill">{{ '%.4f' | format(score) }}</span>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            </section>
+        {% endif %}
+
+        {% if insights.image_prompt %}
+            <section class="image-prompt-insights mb-4">
+                <h4>🖼️ Image Prompt Performance: {{ insights.image_prompt.message }}</h4>
+                {% if insights.image_prompt.high %}
+                    <h6>High-Performing Image Prompt Phrases:</h6>
+                    <ul class="list-group">
+                        {% for phrase, score in insights.image_prompt.high %}
+                            <li class="list-group-item d-flex justify-content="between align-items-center">
+                                {{ phrase }}
+                                <span class="badge bg-success rounded-pill">{{ '%.4f' | format(score) }}</span>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+                {% if insights.image_prompt.low %}
+                    <h6 class="mt-3">Low-Performing Image Prompt Phrases:</h6>
+                    <ul class="list-group">
+                        {% for phrase, score in insights.image_prompt.low %}
+                            <li class="list-group-item d-flex justify-content="between align-items-center">
+                                {{ phrase }}
+                                <span class="badge bg-danger rounded-pill">{{ '%.4f' | format(score) }}</span>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            </section>
+        {% endif %}
+
+        {% if insights.generator_params %}
+            <section class="gen-param-insights mb-4">
+                <h4>⚙️ Generator Parameter Performance: {{ insights.generator_params.message }}</h4>
+                {% if insights.generator_params.providers %}
+                    <h6>Top Performing Providers (Avg Engagement Score):</h6>
+                    <ul class="list-group">
+                        {% for provider, score in insights.generator_params.providers %}
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                {{ provider }}
+                                <span class="badge bg-info rounded-pill">{{ '%.2f' | format(score) }}</span>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+                {% if insights.generator_params.models %}
+                    <h6 class="mt-3">Top Performing Models (Avg Engagement Score):</h6>
+                    <ul class="list-group">
+                        {% for model, score in insights.generator_params.models %}
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                {{ model }}
+                                <span class="badge bg-info rounded-pill">{{ '%.2f' | format(score) }}</span>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+                {% if insights.generator_params.temperatures %}
+                    <h6 class="mt-3">Top Performing Temperatures (Avg Engagement Score):</h6>
+                    <ul class="list-group">
+                        {% for temp, score in insights.generator_params.temperatures %}
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                Temp {{ '%.1f' | format(temp) }}
+                                <span class="badge bg-info rounded-pill">{{ '%.2f' | format(score) }}</span>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            </section>
+        {% endif %}
+
+        {% if insights.posting_times %}
+            <section class="posting-times-insights mb-4">
+                <h4>⏰ Optimal Posting Times: {{ insights.posting_times.message }}</h4>
+                {% if insights.posting_times.hours %}
+                    <h6>Top Performing Hours (Avg Engagement Score):</h6>
+                    <ul class="list-group">
+                        {% for hour, score in insights.posting_times.hours %}
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                {{ hour }}
+                                <span class="badge bg-info rounded-pill">{{ '%.2f' | format(score) }}</span>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+                {% if insights.posting_times.days %}
+                    <h6 class="mt-3">Top Performing Days (Avg Engagement Score):</h6>
+                    <ul class="list-group">
+                        {% for day, score in insights.posting_times.days %}
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                {{ day }}
+                                <span class="badge bg-info rounded-pill">{{ '%.2f' | format(score) }}</span>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            </section>
+        {% endif %}
+
+    {% else %}
+        <p>No ML insights available. Click "Run All Insights Analyses" to generate them.</p>
+    {% endif %}
+</div>
+{% endblock %}

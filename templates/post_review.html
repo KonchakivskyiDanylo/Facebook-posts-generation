@@ -1,0 +1,147 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Post Review & Edit</h2>
+
+<section class="filter-controls">
+    <form action="{{ url_for('post_routes.post_review_page') }}" method="GET">
+        <label for="filter_select">Filter:</label>
+        <select id="filter_select" name="filter" onchange="this.form.submit()">
+            {% for option in filter_options %}
+            <option value="{{ option }}" {% if option == current_filter %}selected{% endif %}>{{ option }}</option>
+            {% endfor %}
+        </select>
+        <button type="submit" class="refresh-button">Refresh List</button>
+    </form>
+</section>
+
+{# Flash messages display handled in base.html #}
+
+<section class="post-list-section">
+    <h3>Generated Posts for Review</h3>
+    <div class="scrollable-table-container">
+        <table class="data-table treeview">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Page</th>
+                    <th>Date</th>
+                    <th>Hour</th> {# Changed from Time to Hour to match DB #}
+                    <th>Topic</th>
+                    <th>Lang</th>
+                    <th>Approved?</th>
+                    <th>Pred. Score</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for post in posts %}
+                <tr class="{% if selected_post and post.id == selected_post.id %}selected-row{% endif %}" onclick="window.location.href='{{ url_for('post_routes.post_review_page', filter=current_filter, selected_post_id=post.id) }}'">
+                    <td>{{ post.id }}</td>
+                    <td>{{ post.page_name }}</td>
+                    <td>{{ post.post_date }}</td>
+                    <td>{{ '%02d:00' | format(post.post_hour) }}</td> {# Format hour to HH:00 #}
+                    <td>{{ post.topic }}</td>
+                    <td>{{ post.language }}</td>
+                    <td>{{ 'Yes' if post.is_approved == 1 else 'No' }}</td> {# Display "Yes"/"No" #}
+                    <td>{{ '%.2f' | format(post.predicted_engagement_score) if post.predicted_engagement_score is not none else 'N/A' }}</td>
+                </tr>
+                {% else %}
+                <tr><td colspan="8">No posts to review based on current filter.</td></tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</section>
+
+{% if selected_post %}
+<section class="post-details-section">
+    <h3>Post Details & Actions (ID: {{ selected_post.id }})</h3>
+    {# Added enctype="multipart/form-data" for file uploads #}
+    <form id="post_details_form" action="{{ url_for('post_routes.post_review_page', filter=current_filter, selected_post_id=selected_post.id) }}" method="POST" enctype="multipart/form-data">
+        <input type="hidden" name="post_id" value="{{ selected_post.id }}">
+
+        <div class="form-group">
+            <label>Page:</label>
+            <select name="page_name_select" required>
+                {% for page_name in page_names %}
+                <option value="{{ page_name }}" {% if page_name == selected_post.page_name %}selected{% endif %}>{{ page_name }}</option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="post_date">Post Date (YYYY-MM-DD):</label>
+            <input type="date" id="post_date" name="post_date" value="{{ selected_post.post_date }}" required>
+        </div>
+
+        <div class="form-group">
+            <label for="post_hour">Post Hour (0-23):</label>
+            <input type="number" id="post_hour" name="post_hour" min="0" max="23" value="{{ selected_post.post_hour }}" required>
+        </div>
+
+        <div class="form-group">
+            <label for="content_en">Content (EN):</label>
+            <textarea id="content_en" name="content_en" rows="5">{{ selected_post.content_en }}</textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="content_ar">Content (AR):</label>
+            <textarea id="content_ar" name="content_ar" rows="5">{{ selected_post.content_ar }}</textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="image_prompt_en">Image Prompt (EN):</label>
+            <textarea id="image_prompt_en" name="image_prompt_en" rows="3">{{ selected_post.image_prompt_en }}</textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="image_prompt_ar">Image Prompt (AR):</label>
+            <textarea id="image_prompt_ar" name="image_prompt_ar" rows="3">{{ selected_post.image_prompt_ar }}</textarea>
+        </div>
+
+        <div class="image-preview-container">
+            <label>Image Preview:</label>
+            {% if selected_post.generated_image_filename %}
+                {# Ensure this URL matches the path where Flask serves static files #}
+                {% set img_src = url_for('static', filename='Generated_Posts_Output/generated_images/' + selected_post.generated_image_filename) %}
+                <img src="{{ img_src }}" alt="Generated Image" style="max-width:200px; max-height:200px; display:block;">
+            {% else %}
+                <div class="no-image-placeholder">No Image Generated or Failed</div>
+            {% endif %}
+        </div>
+
+        <div class="image-actions">
+            {# Pass current image generation settings as hidden fields for "Generate New Image" #}
+            <input type="hidden" name="image_gen_provider" value="{{ image_gen_settings.default_image_gen_provider }}">
+            <input type="hidden" name="image_gen_model" value="{{ image_gen_settings.default_openai_image_model }}">
+            <button type="submit" name="action" value="generate_image" formnovalidate>Generate New Image</button>
+            
+            {# File input for selecting an image from the user's computer #}
+            <input type="file" id="select_image_file" name="image_file" accept="image/*" style="display: none;" 
+                   onchange="uploadImage({{ selected_post.id }}, '{{ current_filter | e }}', {{ selected_post.id }})">
+            <button type="button" onclick="document.getElementById('select_image_file').click();">Select Image from File</button>
+            
+            {# Clear image button #}
+            <button type="submit" name="action" value="clear_image" formnovalidate onclick="return confirm('Are you sure you want to clear the image?');">Clear Image</button>
+        </div>
+
+
+        <div class="form-group checkbox-group">
+            <input type="checkbox" id="is_approved" name="is_approved" {% if selected_post.is_approved == 1 %}checked{% endif %}> {# Check against integer 1 #}
+            <label for="is_approved">Approve for Posting</label>
+        </div>
+
+        <div class="form-group">
+            <label>Predicted Engagement Score:</label>
+            <span>{{ '%.2f' | format(selected_post.predicted_engagement_score) if selected_post.predicted_engagement_score is not none else 'N/A' }}</span>
+        </div>
+
+        <button type="submit" name="action" value="update_post">Update Post</button>
+        {# Delete button should be a separate form or handled carefully if in main form #}
+        <button type="submit" name="action" value="delete_post" formnovalidate class="button-danger" onclick="return confirm('Are you sure you want to delete this post? This cannot be undone.');">Delete Post</button>
+    </form>
+</section>
+{% else %}
+<p>Select a post from the list to view its details and edit.</p>
+{% endif %}
+{% endblock %}

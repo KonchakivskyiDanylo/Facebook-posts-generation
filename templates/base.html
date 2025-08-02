@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Facebook Post Generator</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+
+    <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
+</head>
+<body>
+    <header>
+        <h1>Facebook Post Generator Dashboard</h1>
+        <nav>
+            <a href="{{ url_for('main_routes.home') }}">🏠 Home</a>
+            <a href="{{ url_for('page_routes.page_details_page') }}">📄 Page Details</a>
+            <a href="{{ url_for('topic_routes.manage_topics_page') }}">📚 Manage Topics</a>
+            <a href="{{ url_for('post_routes.generate_posts_page') }}">✍️ Generate Posts</a>
+            <a href="{{ url_for('post_routes.post_review_page') }}">📝 Post Review & Edit</a>
+            <a href="{{ url_for('tracking_routes.posting_tracking_page') }}">📊 Posting & Tracking</a>
+
+            <a href="{{ url_for('ml_routes.ml_dashboard_page') }}">🤖 ML Dashboard</a>
+            <a href="{{ url_for('feedback_routes.user_feedback_page') }}">🗣️ User Feedback</a>
+        </nav>
+    </header>
+
+    <main>
+        {# Flash messages display handled in base.html #}
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+            <ul class="flashes">
+                {% for category, message in messages %}
+                <li class="{{ category }}">{{ message }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+        {% endwith %}
+
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    <footer>
+        <hr>
+        <p style="text-align: center;">&copy; 2025 GET Trading Consulting</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,105 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Posting & Tracking</h2>
+
+<section class="unposted-section">
+    <h3>Approved & Unposted Posts (Ready for Scheduling)</h3>
+    <form id="post_actions_form" action="{{ url_for('tracking_routes.posting_tracking_page') }}" method="POST">
+        <div class="scrollable-table-container">
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th><input type="checkbox" id="select_all_unposted" onclick="toggleAllCheckboxes(this, 'selected_posts_to_post')"></th>
+                        <th>ID</th>
+                        <th>Page</th>
+                        <th>Date</th>
+                        <th>Hour</th>
+                        <th>Topic</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for post in unposted_posts %}
+                    <tr>
+                        <td><input type="checkbox" name="selected_posts_to_post" value="{{ post.id }}"></td>
+                        <td>{{ post.id }}</td>
+                        <td>{{ post.page_name }}</td>
+                        <td>{{ post.post_date }}</td>
+                        <td>{{ post.post_hour }}</td>
+                        <td>{{ post.topic }}</td>
+                    </tr>
+                    {% else %}
+                    <tr><td colspan="6">No approved unposted posts available.</td></tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div class="form-group">
+            <button type="submit" name="action" value="post_selected" {% if not unposted_posts %}disabled{% endif %}>Post Selected</button>
+            <button type="submit" name="action" value="post_all" {% if not unposted_posts %}disabled{% endif %}>Post All Approved</button>
+            <button type="submit" name="action" value="run_ml_predictor">Run ML Predictor (on Unposted)</button>
+        </div>
+    </form>
+</section>
+
+<section class="posted-section" style="margin-top: 20px;">
+    <h3>Posted Posts & Metrics (from Facebook)</h3>
+    <form action="{{ url_for('tracking_routes.posting_tracking_page') }}" method="POST">
+        <div class="scrollable-table-container">
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Page</th>
+                        <th>Date</th>
+                        <th>Time</th>
+                        <th>Topic</th>
+                        <th>FB Post ID</th>
+                        <th>Likes</th>
+                        <th>Comments</th>
+                        <th>Shares</th>
+                        <th>Reach</th>
+                        <th>Engagement</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for post in posted_posts %}
+                    <tr>
+                        <td>{{ post.page_name }}</td>
+                        <td>{{ post.post_date }}</td>
+                        <td>{{ post.post_hour }}</td>
+                        <td>{{ post.topic }}</td>
+                        <td>{{ post.actual_post_id if post.actual_post_id else 'N/A' }}</td>
+                        <td>{{ post.likes }}</td>
+                        <td>{{ post.comments }}</td>
+                        <td>{{ post.shares }}</td>
+                        <td>{{ post.reach }}</td>
+                        <td>{{ post.engagement_score }}</td>
+                    </tr>
+                    {% else %}
+                    <tr><td colspan="10">No posts have been published yet.</td></tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div class="form-group">
+            <button type="submit" name="action" value="fetch_metrics" {% if not posted_posts %}disabled{% endif %}>Fetch Latest Metrics (from FB)</button>
+            <button type="submit" name="action" value="refresh_display">Refresh Display</button>
+        </div>
+    </form>
+</section>
+
+<section class="activity-log">
+    <h3>Activity Log</h3>
+    <pre>{{ tracking_output_log | join('\n') }}</pre>
+</section>
+
+<script>
+    // This function is already in scripts.js, but ensures the form submission is correct.
+    // Re-adding a local reference in case the global one isn't sourced yet.
+    function toggleAllCheckboxes(source, name) {
+        const checkboxes = document.querySelectorAll('input[name="' + name + '"]');
+        checkboxes.forEach(checkbox => {
+            checkbox.checked = source.checked;
+        });
+    }
+</script>
+{% endblock %}

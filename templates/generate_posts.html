@@ -1,0 +1,116 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Generate Posts with AI</h2>
+
+<section class="api-status">
+    <h3>API Key Status</h3>
+    <p>Gemini API Key: {{ get_api_key_status().GEMINI_API_KEY }} (for Text Gen)</p>
+    <p>OpenAI API Key: {{ get_api_key_status().OPENAI_API_KEY }} (for Text & Image Gen)</p>
+    <p>Google Cloud (Imagen) Config: {{ get_api_key_status().IMAGEN_STATUS }}</p>
+    <p>Facebook Page Tokens: Set/Verify in 'Page Details' tab.</p>
+</section>
+
+<section class="generation-settings">
+    <h3>Post Generation Settings</h3>
+    <form action="{{ url_for('post_routes.generate_posts_page') }}" method="POST">
+        <input type="hidden" name="action" value="generate_posts">
+
+        <div class="form-group">
+            <label for="gen_page_selection">Select Facebook Page:</label>
+            <select id="gen_page_selection" name="gen_page_selection" required>
+                {% for page_name in page_names %}
+                <option value="{{ page_name }}" {% if page_name == initial_config.get('SELECTED_PAGE_NAME') %}selected{% endif %}>{{ page_name }}</option>
+                {% else %}
+                <option value="" disabled selected>No pages configured</option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="num_posts">Number of Posts to Generate:</label>
+            <input type="number" id="num_posts" name="num_posts" value="{{ initial_config.DEFAULT_NUM_POSTS }}" min="1" required>
+        </div>
+
+        <div class="form-group">
+            <label for="start_date">Start Date (YYYY-MM-DD):</label>
+            <input type="date" id="start_date" name="start_date" value="{{ initial_config.DEFAULT_START_DATE }}" required>
+        </div>
+
+        <div class="form-group checkbox-group">
+            <input type="checkbox" id="use_optimal_posting_time" name="use_optimal_posting_time">
+            <label for="use_optimal_posting_time">Use Optimal Posting Times (from ML Dashboard)</label>
+        </div>
+
+        <div class="form-group checkbox-group">
+            <input type="checkbox" id="use_optimal_gen_params" name="use_optimal_gen_params">
+            <label for="use_optimal_gen_params">Use Optimal Generation Parameters (from ML Dashboard)</label>
+        </div>
+
+        <div class="form-group checkbox-group">
+            <input type="checkbox" id="use_optimal_language" name="use_optimal_language">
+            <label for="use_optimal_language">Use Optimal Language (from ML Dashboard)</label>
+        </div>
+
+        <div class="form-group">
+            <label for="text_gen_provider">Text Generation Provider:</label>
+            <select id="text_gen_provider" name="text_gen_provider">
+                <option value="Gemini" {% if initial_config.DEFAULT_TEXT_GEN_PROVIDER == 'Gemini' %}selected{% endif %}>Gemini</option>
+                <option value="OpenAI" {% if initial_config.DEFAULT_TEXT_GEN_PROVIDER == 'OpenAI' %}selected{% endif %}>OpenAI</option>
+                <option value="DeepSeek" {% if initial_config.DEFAULT_TEXT_GEN_PROVIDER == 'DeepSeek' %}selected{% endif %}>DeepSeek (Local Ollama)</option>
+                <option value="Mistral" {% if initial_config.DEFAULT_TEXT_GEN_PROVIDER == 'Mistral' %}selected{% endif %}>Mistral (Local Ollama)</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="text_model_selector">Text Generation Model:</label>
+            <select id="text_model_selector" 
+                    name="text_model_selector"
+                    data-initial-gemini-model="{{ initial_config.DEFAULT_GEMINI_MODEL }}"
+                    data-initial-openai-text-model="{{ initial_config.DEFAULT_OPENAI_TEXT_MODEL }}"
+                    data-initial-deepseek-model="deepseek-r1"
+                    data-initial-mistral-model="mistral">
+                {# Options will be populated by JavaScript #}
+            </select>
+            {# Hidden fields to carry the ultimately selected model value for backend if JS updates it #}
+            <input type="hidden" id="hidden_gemini_model" name="gemini_model" value="{{ initial_config.DEFAULT_GEMINI_MODEL }}">
+            <input type="hidden" id="hidden_openai_text_model" name="openai_text_model" value="{{ initial_config.DEFAULT_OPENAI_TEXT_MODEL }}">
+        </div>
+
+        <div class="form-group" id="gemini_temp_group">
+            <label for="temperature">Gemini Temperature (0.0-1.0):</label>
+            <input type="range" id="temperature" name="temperature" min="0.0" max="1.0" step="0.1" value="{{ initial_config.DEFAULT_GEMINI_TEMPERATURE }}">
+            <span id="temperature_value">{{ initial_config.DEFAULT_GEMINI_TEMPERATURE }}</span>
+        </div>
+
+        <div class="form-group">
+            <label for="image_gen_provider">Image Generation Provider:</label>
+            <select id="image_gen_provider" name="image_gen_provider">
+                <option value="OpenAI (DALL-E)" {% if initial_config.DEFAULT_IMAGE_GEN_PROVIDER == 'OpenAI (DALL-E)' %}selected{% endif %}>OpenAI (DALL-E)</option>
+                <option value="Google (Imagen)" {% if initial_config.DEFAULT_IMAGE_GEN_PROVIDER == 'Google (Imagen)' %}selected{% endif %}>Google (Imagen) (Placeholder)</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="openai_image_model">Image Generation Model (for OpenAI):</label>
+            <select id="openai_image_model" name="openai_image_model">
+                <option value="dall-e-3" {% if initial_config.DEFAULT_OPENAI_IMAGE_MODEL == 'dall-e-3' %}selected{% endif %}>dall-e-3</option>
+                <option value="dall-e-2" {% if initial_config.DEFAULT_OPENAI_IMAGE_MODEL == 'dall-e-2' %}selected{% endif %}>dall-e-2</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="output_dir">Output Directory for Images:</label>
+            <input type="text" id="output_dir" name="output_dir" value="{{ initial_config.OUTPUT_DIR }}" required>
+        </div>
+
+        <button type="submit">Generate Posts</button>
+    </form>
+</section>
+
+<section class="activity-log">
+    <h3>Generation Activity Log</h3>
+    <pre>{{ generation_output_log | join('\n') }}</pre>
+</section>
+
+{% endblock %}

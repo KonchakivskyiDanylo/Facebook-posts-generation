@@ -1,0 +1,87 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>User Feedback</h2>
+
+<section class="page-selection">
+    <form action="{{ url_for('feedback_routes.user_feedback_page') }}" method="GET">
+        <label for="selected_page">Select Page for Feedback:</label>
+        <select id="selected_page" name="selected_page" onchange="this.form.submit()">
+            {% for page_name in page_names %}
+            <option value="{{ page_name }}" {% if page_name == selected_page_name %}selected{% endif %}>{{ page_name }}</option>
+            {% else %}
+            <option value="">No pages configured</option>
+            {% endfor %}
+        </select>
+        <input type="hidden" name="selected_page_name_from_form" value="{{ selected_page_name }}"> {# Hidden field to carry page name #}
+    </form>
+</section>
+
+{# Flash messages display handled in base.html #}
+
+{% if selected_page_name %}
+<section class="feedback-list">
+    <h3>Feedback Entries for "{{ selected_page_name }}"</h3>
+    <div class="scrollable-table-container">
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Feedback Text</th>
+                    <th>Created/Updated On</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for feedback in feedback_entries %}
+                <tr class="{% if selected_feedback and feedback.id == selected_feedback.id %}selected-row{% endif %}" onclick="window.location.href='{{ url_for('feedback_routes.user_feedback_page', selected_page=selected_page_name, selected_feedback_id=feedback.id) }}'">
+                    <td>{{ feedback.id }}</td>
+                    <td>{{ feedback.feedback_text }}</td>
+                    <td>{{ feedback.last_updated_at }}</td>
+                    <td>
+                        <button type="button" onclick="event.stopPropagation(); window.location.href='{{ url_for('feedback_routes.user_feedback_page', selected_page=selected_page_name, selected_feedback_id=feedback.id) }}'">Edit</button>
+                        <form style="display:inline;" action="{{ url_for('feedback_routes.user_feedback_page') }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this feedback?');">
+                            <input type="hidden" name="action" value="delete_feedback">
+                            <input type="hidden" name="selected_page_name_from_form" value="{{ selected_page_name }}">
+                            <input type="hidden" name="feedback_id_to_delete" value="{{ feedback.id }}">
+                            <button type="submit" class="button-danger">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+                {% else %}
+                <tr><td colspan="4">No feedback entries for this page.</td></tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</section>
+
+<section class="feedback-details">
+    <h3>{% if selected_feedback %}Edit Feedback (ID: {{ selected_feedback.id }}){% else %}Add New Feedback{% endif %}</h3>
+    <form action="{{ url_for('feedback_routes.user_feedback_page') }}" method="POST">
+        <input type="hidden" name="selected_page_name_from_form" value="{{ selected_page_name }}">
+        {% if selected_feedback %}
+        <input type="hidden" name="action" value="update_feedback">
+        <input type="hidden" name="feedback_id_to_update" value="{{ selected_feedback.id }}">
+        {% else %}
+        <input type="hidden" name="action" value="add_feedback">
+        {% endif %}
+        
+        <div class="form-group">
+            <label for="feedback_text_area">Feedback Text:</label>
+            <textarea id="feedback_text_area" name="feedback_text_area" rows="5" required>{% if selected_feedback %}{{ selected_feedback.feedback_text }}{% endif %}</textarea>
+        </div>
+        
+        <div class="form-group">
+            {% if selected_feedback %}
+            <button type="submit" name="submit_action" value="update">Update Selected Feedback</button>
+            <button type="button" onclick="window.location.href='{{ url_for('feedback_routes.user_feedback_page', selected_page=selected_page_name) }}'">Clear Selection / Add New</button>
+            {% else %}
+            <button type="submit" name="submit_action" value="add">Add New Feedback</button>
+            {% endif %}
+        </div>
+    </form>
+</section>
+{% else %}
+<p>No Facebook page selected. Please select a page above.</p>
+{% endif %}
+{% endblock %}
