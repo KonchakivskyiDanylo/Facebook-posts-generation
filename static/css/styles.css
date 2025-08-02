@@ -20,16 +20,27 @@ header h1 {
     font-size: 24px;
 }
 
+nav {
+    display: flex;
+    gap: 5px;
+    flex-wrap: wrap;
+}
+
 nav a {
     color: #fff;
     text-decoration: none;
-    margin-left: 20px;
-    padding: 5px 10px;
-    border-radius: 5px;
+    padding: 8px 12px;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
 }
 
 nav a:hover {
-    background-color: #555;
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
 }
 
 main {
