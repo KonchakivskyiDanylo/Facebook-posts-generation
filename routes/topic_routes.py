@@ -15,6 +15,7 @@ import text_generator
 # Assume google.generativeai and os.getenv are available for checking API key status
 try:
     import google.generativeai as genai
+
     GEMINI_AVAILABLE_FOR_GUI = True
 except ImportError:
     GEMINI_AVAILABLE_FOR_GUI = False
@@ -24,18 +25,20 @@ topic_routes = Blueprint('topic_routes', __name__)
 # Temporary log for displaying generation output in the template
 manage_topics_log = []
 
+
 def _log_to_manage_topics_log(message):
     manage_topics_log.append(message)
     # Keep the log from growing indefinitely
     if len(manage_topics_log) > 100:
         del manage_topics_log[0]
 
+
 @topic_routes.route('/manage_topics', methods=['GET', 'POST'])
 def manage_topics_page():
     page_names = [page["page_name"] for page in FACEBOOK_PAGES]
     selected_page = None
     selected_topic = None
-    gemini_api_key_set = False # Default to False
+    gemini_api_key_set = False  # Default to False
 
     if GEMINI_AVAILABLE_FOR_GUI and os.getenv("GEMINI_API_KEY"):
         gemini_api_key_set = True
@@ -122,15 +125,19 @@ def manage_topics_page():
                 topic_obj = next((t for t in page_topics if t["name"] == old_topic_name), None)
                 if topic_obj:
                     if new_topic_name.lower() != old_topic_name.lower() and \
-                       any(t["name"].lower() == new_topic_name.lower() for t in page_topics if t["name"] != old_topic_name):
-                        flash(f"A topic with the name '{new_topic_name}' already exists. Please choose a different name.", "warning")
+                            any(t["name"].lower() == new_topic_name.lower() for t in page_topics if
+                                t["name"] != old_topic_name):
+                        flash(
+                            f"A topic with the name '{new_topic_name}' already exists. Please choose a different name.",
+                            "warning")
                     else:
                         topic_obj["name"] = new_topic_name
                         ConfigLoader.save_app_config(current_app)
                         flash(f"Topic '{old_topic_name}' renamed to '{new_topic_name}'.", "success")
                 else:
                     flash(f"Topic '{old_topic_name}' not found.", "danger")
-            return redirect(url_for('topic_routes.manage_topics_page', selected_page=selected_page_name, selected_topic=new_topic_name))
+            return redirect(url_for('topic_routes.manage_topics_page', selected_page=selected_page_name,
+                                    selected_topic=new_topic_name))
 
         elif action == 'delete_topic':
             selected_topics_to_delete = request.form.getlist('selected_topics_to_delete')
@@ -165,7 +172,8 @@ def manage_topics_page():
                 flash(f"Prompts for '{topic_name_to_update}' updated and saved.", "success")
             else:
                 flash(f"Topic '{topic_name_to_update}' not found for update.", "danger")
-            return redirect(url_for('topic_routes.manage_topics_page', selected_page=selected_page_name, selected_topic=topic_name_to_update))
+            return redirect(url_for('topic_routes.manage_topics_page', selected_page=selected_page_name,
+                                    selected_topic=topic_name_to_update))
 
         elif action == 'generate_prompts_gemini':
             topics_to_generate_names = request.form.getlist('selected_topics_to_generate')
@@ -187,12 +195,11 @@ def manage_topics_page():
             _log_to_manage_topics_log(f"Starting Gemini prompt generation for {len(topics_to_process)} topics...")
 
             # Run in a thread to avoid blocking the UI.
-            threading.Thread(target=_run_gemini_generation_background, 
+            threading.Thread(target=_run_gemini_generation_background,
                              args=(app_for_thread, topics_to_process, selected_page_name)).start()
 
             flash("Gemini prompt generation started in the background. Check Activity Log for progress.", "info")
             return redirect(url_for('topic_routes.manage_topics_page', selected_page=selected_page_name))
-
 
     # Re-evaluate selected_topic for GET or after POST redirect
     selected_topic_name = request.args.get('selected_topic')
@@ -207,8 +214,9 @@ def manage_topics_page():
                            gemini_available=gemini_api_key_set,
                            manage_topics_log=manage_topics_log)
 
+
 def _run_gemini_generation_background(app, topics_to_process, page_name_for_redirect):
-    with app.app_context(): # Establish app context for the thread
+    with app.app_context():  # Establish app context for the thread
         generated_count = 0
         total_topics = len(topics_to_process)
         errors_occurred = False
@@ -219,14 +227,15 @@ def _run_gemini_generation_background(app, topics_to_process, page_name_for_redi
 
             if not text_generator.GEMINI_AVAILABLE or not os.getenv("GEMINI_API_KEY"):
                 _log_to_manage_topics_log("ERROR: Gemini API not available or key missing in background thread.")
-                flash("Gemini API not available or key missing. Cannot generate prompts.", "danger") # Flash on main context
+                flash("Gemini API not available or key missing. Cannot generate prompts.",
+                      "danger")  # Flash on main context
                 return
 
             client = genai.GenerativeModel(model_name=model_name, generation_config={"temperature": temperature})
 
             for i, topic_obj in enumerate(topics_to_process):
                 topic_name = topic_obj["name"]
-                _log_to_manage_topics_log(f"Generating prompts for '{topic_name}' ({i+1}/{total_topics})...")
+                _log_to_manage_topics_log(f"Generating prompts for '{topic_name}' ({i + 1}/{total_topics})...")
 
                 try:
                     full_prompt_template = (
@@ -278,21 +287,26 @@ def _run_gemini_generation_background(app, topics_to_process, page_name_for_redi
                     _log_to_manage_topics_log(f"Successfully generated prompts for '{topic_name}'.")
 
                 except (json.JSONDecodeError, ValueError) as e:
-                    _log_to_manage_topics_log(f"ERROR parsing Gemini response for '{topic_name}': {e}. Raw: {generated_content}")
+                    _log_to_manage_topics_log(
+                        f"ERROR parsing Gemini response for '{topic_name}': {e}. Raw: {generated_content}")
                     errors_occurred = True
                 except Exception as e:
                     _log_to_manage_topics_log(f"ERROR during Gemini API call for '{topic_name}': {e}")
                     errors_occurred = True
 
-            ConfigLoader.save_app_config(app) # Use 'app' here directly
+            ConfigLoader.save_app_config(app)  # Use 'app' here directly
             if not errors_occurred and generated_count == total_topics:
                 _log_to_manage_topics_log("Gemini prompt generation complete and SAVED.")
-                flash("Gemini prompt generation complete and SAVED.", "success") # Flash on main context
+                flash("Gemini prompt generation complete and SAVED.", "success")  # Flash on main context
             elif errors_occurred:
-                _log_to_manage_topics_log(f"Gemini prompt generation completed with errors, but changes were SAVED. Generated {generated_count}/{total_topics} successfully.")
-                flash(f"Gemini prompt generation completed with errors, but changes were SAVED. Generated {generated_count}/{total_topics} successfully.", "warning") # Flash on main context
+                _log_to_manage_topics_log(
+                    f"Gemini prompt generation completed with errors, but changes were SAVED. Generated {generated_count}/{total_topics} successfully.")
+                flash(
+                    f"Gemini prompt generation completed with errors, but changes were SAVED. Generated {generated_count}/{total_topics} successfully.",
+                    "warning")  # Flash on main context
             else:
                 _log_to_manage_topics_log("Gemini prompt generation finished. No changes saved or unknown issue.")
-                flash("Gemini prompt generation finished. No changes saved or unknown issue.", "info") # Flash on main context
-
-        _log_to_manage_topics_log("Gemini prompt generation thread finished.")
+                flash("Gemini prompt generation finished. No changes saved or unknown issue.",
+                      "info")  # Flash on main context
+        except:
+            _log_to_manage_topics_log("Gemini prompt generation thread finished.")
